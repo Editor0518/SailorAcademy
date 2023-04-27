@@ -1,0 +1,335 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee4112cacc0f6248b98feaf2f728c7b, type: 3}
+  m_Name: DialogDB
+  m_EditorClassIdentifier: 
+  character:
+  - cNum: 0
+    name: "\uB9C8\uB974\uC2A4"
+    color: '#4d4a48'
+    dftRelation: 
+    dftMental: 
+  - cNum: 1
+    name: "\uD55C\uAC00\uD76C"
+    color: '#ffb6c1'
+    dftRelation: 
+    dftMental: 
+  - cNum: 2
+    name: "\uCD5C\uAC00\uC628"
+    color: '#00008b'
+    dftRelation: 
+    dftMental: 
+  - cNum: 3
+    name: "\uC5D8\uB9AC\uC81C"
+    color: '#a52a2a'
+    dftRelation: 
+    dftMental: 
+  - cNum: 4
+    name: "\uC774\uAC15\uBBFC"
+    color: '#0000ff'
+    dftRelation: 
+    dftMental: 
+  - cNum: 5
+    name: "\uAE40\uB9AC\uC544"
+    color: '#363838'
+    dftRelation: 
+    dftMental: 
+  - cNum: 6
+    name: "\uC15C\uB85D"
+    color: '#ffa500'
+    dftRelation: 
+    dftMental: 
+  - cNum: 7
+    name: "\uC18C\uC774"
+    color: '#ff1493'
+    dftRelation: 
+    dftMental: 
+  - cNum: 8
+    name: "\uACA8\uB8E8"
+    color: '#00ffff'
+    dftRelation: 
+    dftMental: 
+  - cNum: 9
+    name: "\uC624\uBBFC\uD604"
+    color: '#8b4513'
+    dftRelation: 
+    dftMental: 
+  - cNum: 10
+    name: "\uAE40\uC18C\uC815"
+    color: '#d3d3d3'
+    dftRelation: 
+    dftMental: 
+  - cNum: 11
+    name: "\uB808\uC624"
+    color: '#000080'
+    dftRelation: 
+    dftMental: 
+  - cNum: 12
+    name: "\uC2DC\uC5D8"
+    color: '#ffffff'
+    dftRelation: 
+    dftMental: 
+  - cNum: 13
+    name: "\uCD5C\uC2DC\uC628"
+    color: '#8b0000'
+    dftRelation: 
+    dftMental: 
+  - cNum: 14
+    name: "\uC6D4\uB791"
+    color: '#c0c0c0'
+    dftRelation: 
+    dftMental: 
+  - cNum: 15
+    name: "\uD669\uC11C\uD76C"
+    color: '#ff0000'
+    dftRelation: 
+    dftMental: 
+  - cNum: 16
+    name: "\uC120\uC6B0\uC2E0\uC6B0"
+    color: '#faf0e6'
+    dftRelation: 
+    dftMental: 
+  - cNum: 17
+    name: "\uB0A8\uAD81\uBBF8\uB798"
+    color: '#ffe4b5'
+    dftRelation: 
+    dftMental: 
+  - cNum: 18
+    name: "\uC774\uBBFC\uD638"
+    color: '#ffff00'
+    dftRelation: 
+    dftMental: 
+  - cNum: 19
+    name: "\uAE40\uB3C4\uD604"
+    color: '#008000'
+    dftRelation: 
+    dftMental: 
+  - cNum: 20
+    name: "\uC774\uC0C8\uBCBD"
+    color: '#800080'
+    dftRelation: 
+    dftMental: 
+  - cNum: 21
+    name: "\uBBF8\uB098"
+    color: '#deb887'
+    dftRelation: 
+    dftMental: 
+  - cNum: 22
+    name: "\uC1A1\uC740\uD558"
+    color: '#808080'
+    dftRelation: 
+    dftMental: 
+  - cNum: 23
+    name: "\uD45C\uD6C8"
+    color: '#696969'
+    dftRelation: 
+    dftMental: 
+  - cNum: 24
+    name: "\uC608\uD6C8"
+    color: '#f8f8ff'
+    dftRelation: 
+    dftMental: 
+  - cNum: 25
+    name: "\uB8E8\uD06C"
+    color: '#778899'
+    dftRelation: 
+    dftMental: 
+  - cNum: 26
+    name: "\uD30C\uC624"
+    color: '#ffd700'
+    dftRelation: 
+    dftMental: 
+  - cNum: 27
+    name: "\uCD5C\uD638\uC900"
+    color: 
+    dftRelation: 
+    dftMental: 
+  - cNum: 28
+    name: "\uB0A8\uD559\uC0DD"
+    color: 
+    dftRelation: 
+    dftMental: 
+  - cNum: 29
+    name: "\uC5EC\uD559\uC0DD"
+    color: 
+    dftRelation: 
+    dftMental: 
+  prolog:
+  - branch: 1
+    background: 
+    name: 28
+    img: 0
+    dialog: "[\uB9C8\uB974\uC2A4] [\uD55C\uAC00\uD76C] [\uCD5C\uAC00\uC628] [\uC5D8\uB9AC\uC81C]
+      [\uC774\uAC15\uBBFC] [\uAE40\uB9AC\uC544] [\uC15C\uB85D] [\uC18C\uC774] [\uACA8\uB8E8]
+      [\uC624\uBBFC\uD604] [\uAE40\uC18C\uC815] [\uB808\uC624] [\uC2DC\uC5D8] [\uCD5C\uC2DC\uC628]
+      [\uC6D4\uB791] [\uD669\uC11C\uD76C] [\uC120\uC6B0\uC2E0\uC6B0] [\uB0A8\uAD81\uBBF8\uB798]
+      [\uC774\uBBFC\uD638] [\uAE40\uB3C4\uD604] [\uC774\uC0C8\uBCBD] [\uBBF8\uB098]
+      [\uC1A1\uC740\uD558] [\uD45C\uD6C8] [\uC608\uD6C8] [\uB8E8\uD06C] [\uD30C\uC624]"
+    relation: 1r_-1
+    cmd: 
+    cA: 
+    cB: 
+  - branch: 1
+    background: 
+    name: 28
+    img: 0
+    dialog: 
+    relation: 
+    cmd: 
+    cA: 
+    cB: 
+  - branch: 1
+    background: 
+    name: 29
+    img: 0
+    dialog: "\uB2F9\uC5F0\uD788 \uB4E4\uC5C8\uC9C0!"
+    relation: 
+    cmd: 
+    cA: 
+    cB: 
+  - branch: 1
+    background: 
+    name: 29
+    img: 0
+    dialog: "\uC774\uC81C \uADF8 \uBC30\uB97C \uD0C0\uACE0 \uD56D\uD574 \uC2E4\uC2B5\uC744
+      \uB098\uAC08 \uC120\uC6D0\uB4E4\uC744 \uBF51\uACA0\uC9C0? "
+    relation: 
+    cmd: 
+    cA: 
+    cB: 
+  - branch: 1
+    background: 
+    name: 28
+    img: 0
+    dialog: "\uC544, \uB098 \uC774\uBC88\uC5D0 \uC131\uC801 \uC880 \uAD1C\uCC2E\uC740\uB370\u2026"
+    relation: 
+    cmd: 
+    cA: 
+    cB: 
+  - branch: 1
+    background: 
+    name: 28
+    img: 0
+    dialog: "\uC798\uD558\uBA74 \uB0B4\uAC00 \uBF51\uD790\uC218\uB3C4?"
+    relation: 
+    cmd: 
+    cA: 
+    cB: 
+  - branch: 1
+    background: 
+    name: 29
+    img: 0
+    dialog: "\uC774\uBC88\uC5D0 \uC5C4\uCCAD \uB9CE\uC774 \uBF51\uB294\uB2E4\uACE0
+      \uD574\uC11C \uB2E4\uB4E4 \uAE30\uB300\uC911\uC774\uC57C."
+    relation: 
+    cmd: 
+    cA: 
+    cB: 
+  - branch: 1
+    background: 
+    name: 29
+    img: 0
+    dialog: "\uB4E4\uB9AC\uB294 \uC18C\uBB38\uC73C\uB85C\uB294 27\uBA85 \uBF51\uB294\uB2E4\uB358\uB370?"
+    relation: 
+    cmd: 
+    cA: 
+    cB: 
+  - branch: 1
+    background: 
+    name: 28
+    img: 0
+    dialog: "\uD5D0, \uC644\uC804 \uBB3C\uAC08\uC774 \uD558\uB124?"
+    relation: 
+    cmd: 
+    cA: 
+    cB: 
+  - branch: 1
+    background: 
+    name: 28
+    img: 0
+    dialog: "\uD558\uAE34, \uD55C\uB3D9\uC548 \uD56D\uD574 \uC2E4\uC2B5\uC774 \uB738\uD558\uAE30\uB3C4
+      \uD588\uACE0..."
+    relation: 
+    cmd: 
+    cA: 
+    cB: 
+  - branch: 1
+    background: 
+    name: 29
+    img: 0
+    dialog: "\uBB50, \uB4B7\uC18C\uBB38\uC774 \uC548\uC88B\uC740 \uC560\uB4E4 \uBF51\uC544\uC11C
+      \uD559\uAD50 \uBA85\uC131 \uB192\uD788\uB824\uACE0 \uB9CE\uC774 \uBF51\uB294\uB2E4\uB294
+      \uC18C\uBB38\uB3C4 \uC788\uB354\uB77C\uACE0."
+    relation: 
+    cmd: 
+    cA: 
+    cB: 
+  - branch: 1
+    background: 
+    name: 28
+    img: 0
+    dialog: "\uC544, \uBB50\uAC00 \uB410\uB358 \uC774\uBC88\uC5D0\uB294 \uAF2D \uBF51\uD788\uBA74
+      \uC88B\uACA0\uB2E4."
+    relation: 
+    cmd: 
+    cA: 
+    cB: 
+  - branch: 1
+    background: 
+    name: 0
+    img: 0
+    dialog: "\uC774\uC790\uC2DD\uB4E4\uC774\u2026 (\uC5EC\uAE30\uC11C \uBA48\uCD94\uACE0
+      \uC120\uD0DD\uC9C0 \uCC3D\uC774 \uB72C\uB2E4) \uBB58 \uACE0\uB974\uC9C0?"
+    relation: 
+    cmd: choice_2_5
+    cA: "a.\uC774 \uC120\uD0DD\uC744 \uD558\uBA74 \uBD84\uAE302\uB97C \uC2E4\uD589\uD569\uB2C8\uB2E4
+      <br> \uC11C\uBE0C\uD14D\uC2A4\uD2B8\uB2E4"
+    cB: "b.\uC774 \uC120\uD0DD\uC744 \uD558\uBA74 \uBD84\uAE305\uC744 \uC2E4\uD589\uD569\uB2C8\uB2E4<br>\uAC00\uD76C\uC57C\uC0AC\uB791\uD574"
+  - branch: 2
+    background: 
+    name: 0
+    img: 0
+    dialog: "A\uB97C \uC120\uD0DD\uD574\uC11C \uC774 \uB300\uC0AC\uAC00 \uCD9C\uB825\uB428.
+      \u314A\u314E\u3148 \u3133\u3132!"
+    relation: 27r_-1
+    cmd: 
+    cA: 
+    cB: 
+  - branch: 2
+    background: 
+    name: 0
+    img: 0
+    dialog: "\uC73C\uC73C\uC74C\u2026 [\uB9C8\uB974\uC2A4]\uC785\uB2C8\uB2E4. \uC774\uAC74
+      1\uBC88."
+    relation: 
+    cmd: end
+    cA: 
+    cB: 
+  - branch: 5
+    background: 
+    name: 0
+    img: 0
+    dialog: "B\uB97C \uC120\uD0DD\uD574\uC11C \uC774 \uB300\uC0AC\uAC00 \uCD9C\uB825\uB428.
+      \uAC00\uC628\uC544 \uD3B8\uC9C0\uB294 \uC5B8\uC81C \uBCF4\uB0BC\uAC70\uB2C8"
+    relation: 1m_1
+    cmd: 
+    cA: 
+    cB: 
+  - branch: 5
+    background: 
+    name: 2
+    img: 0
+    dialog: "\uC5B4\u2026.[\uCD5C\uAC00\uC628]\uC785\uB2C8\uB2E4. \uC774\uAC74 2\uBC88"
+    relation: 
+    cmd: exit
+    cA: 
+    cB: 
