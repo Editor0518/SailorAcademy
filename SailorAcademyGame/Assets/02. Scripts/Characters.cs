@@ -16,13 +16,15 @@ public class Characters : MonoBehaviour
     [System.Serializable]
     public struct Character {
         public string strName;
+        public string code;
         public float relation;
         public float mental;
         public string color;
         public StandingImg[] standingImg;
 
-        public Character(string strName, float relation, float mental, string color, StandingImg[] standingImg){
+        public Character(string strName, string code, float relation, float mental, string color, StandingImg[] standingImg){
             this.strName = strName;
+            this.code = code;
             this.relation = relation;
             this.mental = mental;
             this.color = color;
@@ -37,9 +39,10 @@ public class Characters : MonoBehaviour
 
 
 
-    Character CreateCharacterType(string strName, float relation, float mental, string color, StandingImg[] standingImg) {
+    Character CreateCharacterType(string strName, string code, float relation, float mental, string color, StandingImg[] standingImg) {
         Character character;
         character.strName = strName;
+        character.code = code;
         character.relation=relation;
         character.mental = mental;
         

@@ -7,4 +7,8 @@ using UnityEngine;
 public class DataHolder : ScriptableObject
 {
     public List<Object> scenes;
+
+    public string[] chap;
+    //chap[0] = prologue
+
 }

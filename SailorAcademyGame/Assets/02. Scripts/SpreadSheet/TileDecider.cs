@@ -229,6 +229,7 @@ public class TileDecider : MonoBehaviour
         data.Branch = "";
         data.Background = "";
         data.Name = "";
+        data.Spot = "";
         data.Img = "";
         data.Dialog = "";
         data.Voice = "";
@@ -239,11 +240,12 @@ public class TileDecider : MonoBehaviour
         if (lines.Length > 0) data.Branch = lines[0];
         if (lines.Length > 1) data.Background = lines[1];
         if (lines.Length > 2) data.Name = lines[2];
-        if (lines.Length > 3) data.Img = lines[3];
-        if (lines.Length > 5) data.Dialog = lines[5];
-        if (lines.Length > 6) data.Voice = lines[6];
-        if (lines.Length > 7) data.CMD = lines[7];
-        if (lines.Length > 8) data.Move = lines[8];
+        if (lines.Length > 3) data.Spot = lines[3];
+        if (lines.Length > 4) data.Img = lines[4];
+        if (lines.Length > 6) data.Dialog = lines[6];
+        if (lines.Length > 7) data.Voice = lines[7];
+        if (lines.Length > 8) data.CMD = lines[8];
+        if (lines.Length > 9) data.Move = lines[9];
         
         return data;
 

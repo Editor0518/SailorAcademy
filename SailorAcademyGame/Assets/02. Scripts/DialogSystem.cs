@@ -1,25 +1,33 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor;
 
 public class DialogSystem : MonoBehaviour
 {
+    #region 변수
     public SheetData sd;
     public Characters ch;
 
     [SerializeField] DialogChoice dialogChoice;
+    [SerializeField] InfoSystem infoSystem;
     [SerializeField] DialogDB dialogDB;
+
+    FirstGearGames.SmoothCameraShaker.CameraShaker cs;
+    GuidePrefabs gp;
 
     [SerializeField] TextController tc;
     [SerializeField] TileDecider td;
     [SerializeField] int branch;
     [SerializeField] int crtbranch;
-    [SerializeField] Image imgStanding;
+
+    [SerializeField] GameObject backFilter;
+    [SerializeField] Image[] imgStanding;
     [SerializeField] TMP_Text txtName;
     [SerializeField] TMP_Text txtDialog;
-
 
     [SerializeField] VoiceManager vm;
     [SerializeField] Inventory iv;
@@ -31,11 +39,28 @@ public class DialogSystem : MonoBehaviour
     [SerializeField] Animator relationAnim;
     [SerializeField] AudioClip[] rel_updown;
 
+    [SerializeField] Transform guideTrans;
 
     public int page = 0;
     public bool canGoNext = true;
-    
-   
+
+    bool showDialogue = true;
+
+    public bool isSkip=false;
+
+    #endregion
+
+    public void ChangeIsSkip(Toggle tog) {
+        isSkip = tog.isOn;
+        if(isSkip) StartCoroutine(SkipItSelf());
+        
+    }
+
+    private void Start() {
+        gp = transform.GetChild(0).GetComponent<GuidePrefabs>();
+        cs = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FirstGearGames.SmoothCameraShaker.CameraShaker>();
+    }
+
     private void Awake() {
         /*int index = 0;
         for (int i = 0; i < dialogDB.prolog.Count; ++i) {
@@ -45,6 +70,8 @@ public class DialogSystem : MonoBehaviour
             }
         }*/
         audiosource = GetComponent<AudioSource>();
+
+        //구글 스프레드시트 값 가져옴
         td.takefromCSV();
         StartCoroutine(WaitUntilLoad());
     }
@@ -65,6 +92,7 @@ public class DialogSystem : MonoBehaviour
         StartCoroutine(tc.TextTyping());
     }
 
+    //스프레드 시트에 표기된 Branch에 따라 시작 페이지를 설정. 페이지 이동 할 때 사용.
     void PageSettingOnBranch() {
         for (int i = page; i < sd.sheetData.Count; i++) {
             if (sd.sheetData[i].Branch.Length > 0) {
@@ -77,21 +105,29 @@ public class DialogSystem : MonoBehaviour
         }
     }
 
+    //다이얼로그 읽고 화면에 보여주기.
     public void ShowDialog() {
         /*for (; (sd.sheetData[page].Branch != branch.ToString()); page++) {
             if (sd.sheetData[page].Branch.Equals(branch.ToString())) break;
         }*/
         //if (sd.sheetData[page].Branch.Equals("")) { }
         //else if (!int.Parse(sd.sheetData[page].Branch).Equals(branch)) { page++;  }
-        if (tc.isTyping) {
-            
+        if (tc.isTyping) {  
             return;
         }
         
+        if (infoSystem.whole.activeInHierarchy) infoSystem.whole.SetActive(false);
+
+
+        if (backFilter.activeInHierarchy) backFilter.SetActive(false);
+        showDialogue = true;
         ExecuteCmd(sd.sheetData[page].Name);
-        
-        SetDialog(sd.sheetData[page].Name);
-        PlayVoiceFromList();
+
+        if (showDialogue) {
+            SetDialog(sd.sheetData[page].Name);
+            PlayVoiceFromList();
+        }
+
         ReadHCMD(sd.sheetData[page].CMD);
         ChangeBranch(sd.sheetData[page].Move);
         
@@ -102,8 +138,23 @@ public class DialogSystem : MonoBehaviour
         page++;
     }
 
+    //cmd를 읽고 해석
     void ReadHCMD(string cmd) {
         if (cmd == "" || cmd == null) return;
+        if (cmd.Contains("s!")) {//s!1
+            string length = cmd.Replace("s!", "");
+
+        }
+
+        if (cmd.Contains("gv_")) {
+            string name = cmd.Replace("gv_", "");
+            iv.AddItemInInventory(name);
+        }
+        if (cmd.Contains("del_")) {
+            string name = cmd.Replace("del_", "");
+            iv.RemoveItemInInventory(name);
+        }
+
         if (!cmd.Contains("=")) { return; }
 
         if (cmd.Contains("=")) {
@@ -166,7 +217,35 @@ public class DialogSystem : MonoBehaviour
         txtDialog.color = ChangeNameColorOfText(n);
         //txtDialog.gameObject.SetActive(true);
         audiosource.PlayOneShot(dialClip);
-        ChangeSprite(n);
+
+        string[] strs = ArrayOfSheetImg(sd.sheetData[page].Img);
+        
+        for (int i = 0; i < strs.Length; i++) {
+            ChangeSprite(i, strs[i]);
+            
+        }
+
+        string spot = sd.sheetData[page].Spot;
+        if (spot != "") {
+            int index = Array.IndexOf(strs, spot);
+            if (index < 0) {
+                index = 0;
+                
+            }
+            imgStanding[index].transform.parent.gameObject.SetActive(true);
+            ChangeSpriteSpotlight(index, spot);
+        }
+        
+    }
+
+    string[] ArrayOfSheetImg(string img) {
+        string[] strs = img.Split(", ");
+
+        for (int i = 0; i < imgStanding.Length; i++) {
+            imgStanding[i].transform.parent.gameObject.SetActive(i < strs.Length);
+        }
+
+        return strs;
     }
 
     Color ChangeNameColorOfText(string name) {
@@ -183,22 +262,27 @@ public class DialogSystem : MonoBehaviour
         return color;
     }
 
-    void ChangeSprite(string name) {
+    void ChangeSprite(int index, string name) {
         Color none = Color.clear;
-        Color all = Color.white;
+        Color all = Color.grey;
         bool isFinished = false;
 
         for (int i = 0; i < ch.chracters.Count; i++) {
-            if (name.Contains(ch.chracters[i].strName)) {
-                imgStanding.color = all;
-                imgStanding.sprite=ch.chracters[i].standingImg[0].sprite;
+            if (name.Contains(ch.chracters[i].code)) {
+                imgStanding[index].color = all;
+                imgStanding[index].sprite=ch.chracters[i].standingImg[0].sprite;
                 
                 isFinished = true;
                 break;
             }
         }
-        if(!isFinished) imgStanding.color = none;
+        if(!isFinished) imgStanding[index].color = none;
         
+    }
+
+    void ChangeSpriteSpotlight(int index, string name) {
+        ChangeSprite(index, name);
+        imgStanding[index].color = Color.white;
     }
 
     public void NextDialog() {
@@ -252,29 +336,29 @@ public class DialogSystem : MonoBehaviour
             int choices=int.Parse(sd.sheetData[page].Img);
 
             string dialogA = sd.sheetData[page + 1].Dialog;
-            string subA = sd.sheetData[page + 1].CMD;
             int branchA = int.Parse(sd.sheetData[page + 1].Img);
             int lockA = IntReadHCMD(sd.sheetData[page + 1].Voice);
 
 
             string dialogB = sd.sheetData[page + 2].Dialog;
-            string subB = sd.sheetData[page + 2].CMD;
             int branchB = int.Parse(sd.sheetData[page + 2].Img);
             int lockB = IntReadHCMD(sd.sheetData[page + 2].Voice);
 
             if (choices.Equals(3)) {
                 string dialogC = sd.sheetData[page + 3].Dialog;
-                string subC = sd.sheetData[page + 3].CMD;
                 int branchC = int.Parse(sd.sheetData[page + 3].Img);
                 int lockC = IntReadHCMD(sd.sheetData[page + 3].Voice);
 
-                dialogChoice.SetChoice(sd.sheetData[page].Dialog, dialogA, subA, branchA, lockA, dialogB, subB, branchB, lockB, dialogC, subC, branchC, lockC);
+                dialogChoice.SetChoice(sd.sheetData[page].Dialog, dialogA, branchA, lockA, dialogB, branchB, lockB, dialogC, branchC, lockC);
 
             }
             else {
-                dialogChoice.SetChoice(sd.sheetData[page].Dialog, dialogA, subA, branchA, lockA, dialogB, subB, branchB, lockB);
+                dialogChoice.SetChoice(sd.sheetData[page].Dialog, dialogA, branchA, lockA, dialogB, branchB, lockB);
 
             }
+
+            backFilter.SetActive(true);
+
             //page += choices;
 
         }
@@ -330,10 +414,18 @@ public class DialogSystem : MonoBehaviour
             }
 
         }
-        else if (cmd.Equals("시스템")) {
-            
+        else if (cmd.Equals("정보")) {
+            infoSystem.ShowInfo(sd.sheetData[page].Dialog);
+            showDialogue = false;
         }
-        
+        else if (cmd.Equals("시스템")) {
+            if (guideTrans.childCount > 0) Destroy(guideTrans.GetChild(0));
+            Instantiate(gp.FindGuide(sd.sheetData[page].CMD), guideTrans);
+
+            //infoSystem.ShowInfo(sd.sheetData[page].Dialog);
+            page++;
+            //showDialogue = false;
+        }
     }
 
     void ChangeRelation(string name, int n) {
@@ -421,12 +513,24 @@ public class DialogSystem : MonoBehaviour
     }
 
     private void Update() {
-        if (canGoNext) {
+        if (canGoNext && !isSkip) {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) {
                 ShowDialog();
             }
         }
 
+    }
+
+    IEnumerator SkipItSelf() {
+        WaitForSeconds wait = new(1.5f);
+        while (isSkip) {
+            if (canGoNext && !tc.isTyping) {
+
+                ShowDialog();
+                yield return wait;
+            }
+            //new WaitUntil(() => tc.DoTextChanged && tc.hasTextChanged);
+        }
     }
 
 }

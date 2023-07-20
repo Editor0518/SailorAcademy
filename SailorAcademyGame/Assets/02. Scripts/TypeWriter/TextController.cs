@@ -20,8 +20,8 @@ public class TextController : MonoBehaviour
 
     private float[] typingProgress;
 
-    private bool hasTextChanged;
-    private bool DoTextChanged;
+    public bool hasTextChanged;
+    public bool DoTextChanged;
 
     private System.Random rand = new System.Random();
 

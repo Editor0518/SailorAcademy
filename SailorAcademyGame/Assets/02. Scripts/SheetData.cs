@@ -13,16 +13,18 @@ public class SheetData : MonoBehaviour
         public string Branch;
         public string Background;
         public string Name;
+        public string Spot;
         public string Img;
         public string Dialog;
         public string Voice;
         public string CMD;
         public string Move;
 
-        public Data(string Branch, string Background, string Name, string Img, string Dialog, string Voice, string CMD, string Move) {
+        public Data(string Branch, string Background, string Name, string Spot, string Img, string Dialog, string Voice, string CMD, string Move) {
             this.Branch = Branch;
             this.Background = Background;
             this.Name = Name;
+            this.Spot = Spot;
             this.Img = Img;
             this.Dialog = Dialog;
             this.Voice = Voice;
