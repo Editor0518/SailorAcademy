@@ -26,7 +26,8 @@ public class TextController : MonoBehaviour
     private System.Random rand = new System.Random();
 
     public bool isTyping = false;
-    float typingDelay=0.01f;
+    float typingDelay=0.01f;//0.01
+    WaitForSeconds wait = new WaitForSeconds(0.007f);
 
     void Start()
     {
@@ -273,8 +274,8 @@ public class TextController : MonoBehaviour
                 randomSeed = Random.Range(0,1001);
                 shakeTimer -= txetMana.shakeDelay;
             }
-            
-            yield return null;
+
+            yield return null;// new WaitForSeconds(typingDelay);//
         }
     }
 
@@ -334,7 +335,7 @@ public class TextController : MonoBehaviour
                 }
             }
 
-            yield return null;
+            yield return wait; //null;
         }
 
     }

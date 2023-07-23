@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEditor;
+using Spine.Unity;
 
 public class DialogSystem : MonoBehaviour
 {
@@ -36,11 +37,19 @@ public class DialogSystem : MonoBehaviour
     [SerializeField] Inventory iv;
     AudioSource audiosource;
     [SerializeField] AudioClip dialClip;
-    
-    [SerializeField] Animator mentalAnim;
+
+
+    [Header("Animation")]
+    //[SerializeField] AnimationReferenceAsset animRef;
+    [SerializeField] SkeletonGraphic skelAnim;//SkeletonAnimation
+    public Spine.Skeleton skel;
+    public Spine.AnimationState animState;
+    //[SerializeField] Animator mentalAnim;
     [SerializeField] AudioClip[] men_updown;
-    [SerializeField] Animator relationAnim;
+    //[SerializeField] Animator relationAnim;
     [SerializeField] AudioClip[] rel_updown;
+
+
 
     [SerializeField] Transform guideTrans;
 
@@ -65,6 +74,10 @@ public class DialogSystem : MonoBehaviour
     private void Start() {
         gp = transform.GetChild(0).GetComponent<GuidePrefabs>();
         cs = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FirstGearGames.SmoothCameraShaker.CameraShaker>();
+
+        skelAnim.Skeleton.SetToSetupPose();
+        skelAnim.Skeleton.SetBonesToSetupPose();
+        skelAnim.Skeleton.SetSlotsToSetupPose();
     }
 
     private void Awake() {
@@ -280,7 +293,7 @@ public class DialogSystem : MonoBehaviour
 
     Color ChangeNameColorOfText(string name) {
         Color color=new Color(255,255,255,100);
-
+        /*
         for (int i = 0; i < ch.chracters.Count; i++) {
             if (name.Contains(ch.chracters[i].strName)) {
                 if (ColorUtility.TryParseHtmlString(ch.chracters[i].color, out color)) {
@@ -288,7 +301,7 @@ public class DialogSystem : MonoBehaviour
                 }
                 else return color;
             }
-        }
+        }*/
         return color;
     }
 
@@ -402,15 +415,26 @@ public class DialogSystem : MonoBehaviour
             int n = 0;
             if (split[1].Contains("╩С╫б")) {
                 n = 1;
-                relationAnim.SetTrigger("up");
+                //relationAnim.SetTrigger("up");
+                //skelAnim.Skeleton.SetSkin("Friend/up/Friend0");
+                skelAnim.initialSkinName = "Friend/up/Friend0";
+                //skelAnim.AnimationState.
+                skelAnim.startingAnimation = "Up";
+                //skelAnim.AnimationState.SetAnimation(0, "up", true);
                 audiosource.PlayOneShot(rel_updown[0]);
             }
 
             if (split[1].Contains("го╤Т")) {
                 n = -1;
-                relationAnim.SetTrigger("down");
+                //relationAnim.SetTrigger("down");
+                //skelAnim.Skeleton.SetSkin("Friend/down/Friend-0");
+                skelAnim.initialSkinName = "Friend/down/Friend-0";
+                skelAnim.startingAnimation = "Down";
+                //skelAnim.AnimationState.SetAnimation(0, "down", true);
                 audiosource.PlayOneShot(rel_updown[1]);
             }
+            skelAnim.Skeleton.SetSlotsToSetupPose();
+            skelAnim.AnimationState.Apply(skelAnim.Skeleton);
 
             page++;
 
@@ -428,16 +452,27 @@ public class DialogSystem : MonoBehaviour
             int n = 0;
             if (split[1].Contains("╩С╫б")) {
                 n = 1;
-                mentalAnim.SetTrigger("up");
+                //skelAnim.Skeleton.SetSkin("Mental/up/Mental0");
+                skelAnim.initialSkinName = "Mental/up/Mental0";
+                skelAnim.startingAnimation = "Up";
+                //skelAnim.AnimationState.SetAnimation(0, "up", true);
+                //mentalAnim.SetTrigger("up");
                 audiosource.PlayOneShot(men_updown[0]);
             }
+            //Friend/down/Friend-0
+            //Mental / up / Mental0
 
             if (split[1].Contains("го╤Т")) {
                 n = -1;
-                mentalAnim.SetTrigger("down");
+                //skelAnim.Skeleton.SetSkin("Mental/down/Mental-0");
+                skelAnim.initialSkinName = "Mental/down/Mental-0";
+                skelAnim.startingAnimation = "Down";
+                //skelAnim.AnimationState.SetAnimation(0, "down", true);
+                //mentalAnim.SetTrigger("down");
                 audiosource.PlayOneShot(men_updown[1]);
             }
-
+            skelAnim.Skeleton.SetSlotsToSetupPose();
+            skelAnim.AnimationState.Apply(skelAnim.Skeleton);
             page++;
 
             for (int i = 0; i < cas.Length; i++) {
