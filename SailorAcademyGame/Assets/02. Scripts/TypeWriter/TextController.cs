@@ -9,10 +9,10 @@ public class TextController : MonoBehaviour
     TMP_TextInfo textInfo;
 
     [SerializeField] string fullText;
-    private string simpleText;
+    public string simpleText;//private
 
-    private int typingTextCounter = 0;
-    private float typeTimeChecker = 0;
+    public int typingTextCounter = 0;//private
+    public float typeTimeChecker = 0;//private
 
     [SerializeField] private List<EffectReader> effectReaders;
 
@@ -28,6 +28,9 @@ public class TextController : MonoBehaviour
     public bool isTyping = false;
     float typingDelay=0.01f;//0.01
     WaitForSeconds wait = new WaitForSeconds(0.007f);
+
+    public bool isFinished = false;
+    
 
     void Start()
     {
@@ -304,16 +307,18 @@ public class TextController : MonoBehaviour
                 if (typingTextCounter >= i)
                 {
                     typingProgress[i] += Time.deltaTime / txetMana.typingSpeed;
+                    
                 }
 
                 for (int j = 0; j < 4; j++)
                 {
-                    newVertexColors[vertexIndex + j] = Color32.Lerp(txetMana.typingTransform.color[j], txetMana.baseColor[j], typingProgress[i]);
+                    if(vertexIndex+j<newVertexColors.Length)newVertexColors[vertexIndex + j] = Color32.Lerp(txetMana.typingTransform.color[j], txetMana.baseColor[j], typingProgress[i]);
                 }
 
                 textComponent.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
 
             }
+            
 
             typeTimeChecker += Time.deltaTime;
             try
@@ -332,8 +337,18 @@ public class TextController : MonoBehaviour
             if (typingTextCounter == characterCount) {
                 if (isTyping) {
                     isTyping = false;
+                    
                 }
+                
             }
+            /*
+            if (typingTextCounter >= characterCount) {
+                if(!isFinished) isFinished = true;
+            }
+            else { 
+                if(isFinished) isFinished = false; 
+            
+            }*/
 
             yield return wait; //null;
         }

@@ -67,9 +67,11 @@ public class DialogSystem : MonoBehaviour
 
     public void ChangeIsSkip(Toggle tog) {
         isSkip = tog.isOn;
-        if(isSkip) StartCoroutine(SkipItSelf());
+        if(isSkip&& skipItself==null) skipItself=StartCoroutine(SkipItSelf());
         
     }
+
+    Coroutine skipItself;
 
     private void Start() {
         gp = transform.GetChild(0).GetComponent<GuidePrefabs>();
@@ -375,7 +377,25 @@ public class DialogSystem : MonoBehaviour
         return content;
     }
 
+    //Spine.Skin friendUp, friendDown, mentalUp, mentalDown;
+
+
     void ExecuteCmd(string cmd) {
+        /*friendUp = skelAnim.SkeletonData.FindSkin("Friend/up/Friend0");
+        friendDown = skelAnim.SkeletonData.FindSkin("Friend/down/Friend-0");
+        mentalUp = skelAnim.SkeletonData.FindSkin("Mental/up/Mental0");
+        mentalDown = skelAnim.SkeletonData.FindSkin("Mental/down/Mental-0");
+
+        friendUp = new Spine.Skin("friend Up");
+        friendDown = new Spine.Skin("friend Down");
+        mentalUp = new Spine.Skin("mental Up");
+        mentalDown = new Spine.Skin("mental Down");
+
+        friendUp.AddSkin(skelAnim.SkeletonData.FindSkin("Friend/up/Friend0"));
+        friendDown.AddSkin(skelAnim.SkeletonData.FindSkin("Friend/down/Friend-0"));
+        mentalUp.AddSkin(skelAnim.SkeletonData.FindSkin("Mental/up/Mental0"));
+        mentalDown.AddSkin(skelAnim.SkeletonData.FindSkin("Mental/down/Mental-0"));*/
+
         if (cmd.Equals("선택지")) {
             canGoNext = false;
             int choices = int.Parse(sd.sheetData[page].Img);
@@ -416,10 +436,12 @@ public class DialogSystem : MonoBehaviour
             if (split[1].Contains("상승")) {
                 n = 1;
                 //relationAnim.SetTrigger("up");
-                //skelAnim.Skeleton.SetSkin("Friend/up/Friend0");
-                skelAnim.initialSkinName = "Friend/up/Friend0";
+                skelAnim.Skeleton.SetSkin("Friend/up/Friend0");
+                //skelAnim.Skeleton.SetSkin(friendUp);
+                //skelAnim.initialSkinName = "Friend/up/Friend0";
                 //skelAnim.AnimationState.
-                skelAnim.startingAnimation = "Up";
+                //skelAnim.startingAnimation = "Up";
+                skelAnim.AnimationState.SetAnimation(0, "Up", true);
                 //skelAnim.AnimationState.SetAnimation(0, "up", true);
                 audiosource.PlayOneShot(rel_updown[0]);
             }
@@ -427,15 +449,17 @@ public class DialogSystem : MonoBehaviour
             if (split[1].Contains("하락")) {
                 n = -1;
                 //relationAnim.SetTrigger("down");
-                //skelAnim.Skeleton.SetSkin("Friend/down/Friend-0");
-                skelAnim.initialSkinName = "Friend/down/Friend-0";
-                skelAnim.startingAnimation = "Down";
+                skelAnim.Skeleton.SetSkin("Friend/down/Friend-0");
+                //skelAnim.Skeleton.SetSkin(friendDown);
+                //skelAnim.initialSkinName = "Friend/down/Friend-0";
+                //skelAnim.startingAnimation = "Down";
+                skelAnim.AnimationState.SetAnimation(0, "Down", true);
                 //skelAnim.AnimationState.SetAnimation(0, "down", true);
                 audiosource.PlayOneShot(rel_updown[1]);
             }
             skelAnim.Skeleton.SetSlotsToSetupPose();
+            skelAnim.Update(0);
             skelAnim.AnimationState.Apply(skelAnim.Skeleton);
-
             page++;
 
             for (int i = 0; i < cas.Length; i++) {
@@ -452,9 +476,11 @@ public class DialogSystem : MonoBehaviour
             int n = 0;
             if (split[1].Contains("상승")) {
                 n = 1;
-                //skelAnim.Skeleton.SetSkin("Mental/up/Mental0");
-                skelAnim.initialSkinName = "Mental/up/Mental0";
-                skelAnim.startingAnimation = "Up";
+                skelAnim.Skeleton.SetSkin("Mental/up/Mental0");
+                //skelAnim.initialSkinName = "Mental/up/Mental0";
+                //skelAnim.startingAnimation = "Up";
+               // skelAnim.Skeleton.SetSkin(mentalUp);
+                skelAnim.AnimationState.SetAnimation(0, "Up", true);
                 //skelAnim.AnimationState.SetAnimation(0, "up", true);
                 //mentalAnim.SetTrigger("up");
                 audiosource.PlayOneShot(men_updown[0]);
@@ -464,14 +490,17 @@ public class DialogSystem : MonoBehaviour
 
             if (split[1].Contains("하락")) {
                 n = -1;
-                //skelAnim.Skeleton.SetSkin("Mental/down/Mental-0");
-                skelAnim.initialSkinName = "Mental/down/Mental-0";
-                skelAnim.startingAnimation = "Down";
+               skelAnim.Skeleton.SetSkin("Mental/down/Mental-0");
+                //skelAnim.initialSkinName = "Mental/down/Mental-0";
+                //skelAnim.startingAnimation = "Down";
+                //skelAnim.Skeleton.SetSkin(mentalDown);
+                skelAnim.AnimationState.SetAnimation(0, "Down", true);
                 //skelAnim.AnimationState.SetAnimation(0, "down", true);
                 //mentalAnim.SetTrigger("down");
                 audiosource.PlayOneShot(men_updown[1]);
             }
             skelAnim.Skeleton.SetSlotsToSetupPose();
+            skelAnim.Update(0);
             skelAnim.AnimationState.Apply(skelAnim.Skeleton);
             page++;
 
@@ -621,7 +650,7 @@ public class DialogSystem : MonoBehaviour
     IEnumerator SkipItSelf() {
         WaitForSeconds wait = new(1.5f);
         while (isSkip) {
-            if (canGoNext && !tc.isTyping) {
+            if (canGoNext && tc.isFinished) {
 
                 ShowDialog();
                 yield return wait;
