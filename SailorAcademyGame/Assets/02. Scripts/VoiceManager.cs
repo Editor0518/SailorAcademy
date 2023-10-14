@@ -28,9 +28,14 @@ public class VoiceManager : MonoBehaviour
     public void PlayVoiceIfExist(string str) {
         audiosource.Stop();
         if (str == null || str == "") return;
-        string path = Path.Combine("Assets/05. Sound/tempVce", str + ".wav");
+        string path = Path.Combine("Assets/05. Sound/Prologue", str + ".wav");
         AudioClip obj = (AudioClip)AssetDatabase.LoadAssetAtPath(path, typeof(AudioClip));
-        if (obj == null) { Debug.Log("파일이 존재하지 않습니다!!" + path); return; }
+        if (obj == null) {
+            path = Path.Combine("Assets/05. Sound/Prologue", str + ".mp3");
+            obj = (AudioClip)AssetDatabase.LoadAssetAtPath(path, typeof(AudioClip));
+
+            if (obj == null) { Debug.Log("파일이 존재하지 않습니다!!" + path); return; }
+        }
 
         audiosource.clip = obj;
         audiosource.Play();

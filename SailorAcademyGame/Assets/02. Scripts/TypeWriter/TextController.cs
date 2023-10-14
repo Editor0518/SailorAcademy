@@ -16,7 +16,7 @@ public class TextController : MonoBehaviour
 
     [SerializeField] private List<EffectReader> effectReaders;
 
-    [SerializeField] private TextManager txetMana;
+    TextManager txetMana;
 
     private float[] typingProgress;
 
@@ -30,10 +30,14 @@ public class TextController : MonoBehaviour
     WaitForSeconds wait = new WaitForSeconds(0.007f);
 
     public bool isFinished = false;
-    
+
+
+    public DialogSystem dialog;
 
     void Start()
     {
+        dialog = GameObject.FindGameObjectWithTag("Manager").GetComponent<DialogSystem>();
+        txetMana = GameObject.FindGameObjectWithTag("TextManager").GetComponent < TextManager>();
         textInfo = textComponent.textInfo;
         //TextChanged("<'' 0.04><~>wave</~> and <!>impact <b>plus</b> <*>shake</!></*> + <%>r o t a t e</%> 일반글씨<big>큰글씨</big><''>");
         
@@ -145,6 +149,7 @@ public class TextController : MonoBehaviour
                 typingProgress = new float[textInfo.characterCount];
 
                 hasTextChanged = DoTextChanged = false;
+               
             }
             
             int characterCount = textInfo.characterCount;
@@ -154,7 +159,7 @@ public class TextController : MonoBehaviour
             for (int i = 0; i < characterCount; i++)
             {
                 TMP_CharacterInfo charInfo = textInfo.characterInfo[i];
-                
+
                 foreach (string tagText in effectReaders[i].effects)
                 {
                     switch (tagText)//tag apply
@@ -183,6 +188,7 @@ public class TextController : MonoBehaviour
                         case "</%>":
                             rotate = false;
                             break;
+                        case "<br>":break;
                         default:
                             break;
                     }
@@ -312,7 +318,10 @@ public class TextController : MonoBehaviour
 
                 for (int j = 0; j < 4; j++)
                 {
-                    if(vertexIndex+j<newVertexColors.Length)newVertexColors[vertexIndex + j] = Color32.Lerp(txetMana.typingTransform.color[j], txetMana.baseColor[j], typingProgress[i]);
+                    if (vertexIndex + j < newVertexColors.Length) { 
+                        if(typingTextCounter> 0)//&& vertexIndex+j<newVertexColors.Length && j<txetMana.typingTransform.color.Length && j < txetMana.baseColor.Length && j < typingProgress.Length)
+                        newVertexColors[vertexIndex + j] = Color32.Lerp(txetMana.typingTransform.color[j], txetMana.baseColor[j], typingProgress[i]); 
+                    }
                 }
 
                 textComponent.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
@@ -326,20 +335,25 @@ public class TextController : MonoBehaviour
                 if (typeTimeChecker >= effectReaders[typingTextCounter].textSpeed && typingTextCounter < characterCount) {
                     typeTimeChecker -= effectReaders[typingTextCounter].textSpeed;
                     typingTextCounter++;
-                    if (isTyping) {
+                    if (!isTyping) {
                         isTyping = true;
                     }
                 }
 
             }
             catch (System.Exception) { }
-
-            if (typingTextCounter == characterCount) {
-                if (isTyping) {
+            
+            if (typingTextCounter >= characterCount) {
+               
+                if (isTyping) {//단 한번만 실행됨
                     isTyping = false;
                     
                 }
-                
+                if (dialog.isSkip && dialog.canAutoSkip && !isTyping)
+                {
+                        Debug.Log("Next");
+                        dialog.ShowDialog();
+                }
             }
             /*
             if (typingTextCounter >= characterCount) {
@@ -354,6 +368,7 @@ public class TextController : MonoBehaviour
         }
 
     }
+
 
     private string ToTmpText(string originalText)
     {

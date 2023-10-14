@@ -18,7 +18,7 @@ public class TileDecider : MonoBehaviour
     //string[] notes;
     public TMP_Text display;
     //string[] row;
-    int i = 0;
+    //int i = 0;
     //int starter = -1;
     //int levelno = 1;
     //AudioClip[] temp=new AudioClip[12];
@@ -38,14 +38,27 @@ public class TileDecider : MonoBehaviour
    
     protected string path1 = "https://sheets.googleapis.com/v4/spreadsheets/1cshuvUxPBE4xkH1pChXWnn3vdEz_8oDg0dFE68Hs1WA/values/";
     protected string path2= "?key=AIzaSyActNUgOKySleTsSLNYMM3OE0qB_KXee8o";
-    public string sheetName = "prolog";
+    [HideInInspector] string sheetName;
+    public int chap=-1;
+    string[] chapter = { "prolog (N)", "ch1 (N)", "ch2", "ch3", "ch4" };
 
+    /*
+    public void SetSheetName(int chap=-1) {
+        if(chap>=0) PlayerPrefs.SetString("sheetName", chapter[chap]);
+        sheetName = PlayerPrefs.GetString("sheetName", chapter[0]);
+    }*/
 
     public string Path() {
+        sheetName = chapter[int.Parse(PlayerPrefs.GetString("DftSave", "0"))];//chap
+        if (chap >= 0) sheetName = chapter[chap];
         return string.Concat(path1, sheetName, path2);
     }
 
-
+    private void Start()
+    {
+        
+        //if (sheetName == "") SetSheetName();
+    }
     //bool didsend = false;
 
     /*void Start() {
@@ -113,7 +126,7 @@ public class TileDecider : MonoBehaviour
         }
     }*/
 
-    
+
 
     /*IEnumerator VersionControl() {
         UnityWebRequest www = UnityWebRequest.Get("https://sheets.googleapis.com/v4/spreadsheets/18xumC_FO15zwNaSr8RrWiGojUqnIgEOkhw63uqoir1Y/values/version?key=AIzaSyBSD1rsOonDjAHJEbKXttI_xers7iVrk-U");
@@ -145,11 +158,11 @@ public class TileDecider : MonoBehaviour
         }
     }*/
 
-
+    //www.isNetworkError  www.isHttpError
     IEnumerator ObtainSheetData() {
         UnityWebRequest www = UnityWebRequest.Get(Path());
         yield return www.SendWebRequest();
-        if (www.isNetworkError || www.isHttpError || www.timeout > 2) {
+        if (www.result== UnityWebRequest.Result.ConnectionError  || www.result == UnityWebRequest.Result.ProtocolError || www.timeout > 2) {
             Debug.Log("error" + www.error);
             //networkerror.SetActive(true);
             //takerandomvalues();
@@ -161,7 +174,7 @@ public class TileDecider : MonoBehaviour
             sd.sheetData.Clear();
             //didsend = true;
             string json = www.downloadHandler.text;
-
+            Debug.Log(www);
             var o = JSON.Parse(json);
             int a = 0;
 

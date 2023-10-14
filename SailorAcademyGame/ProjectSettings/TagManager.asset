@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Manager
+  - RecordOn
+  - ChapterEnd
+  - SheetData
+  - DontDestroy
+  - Voice
+  - TextManager
   layers:
   - Default
   - TransparentFX

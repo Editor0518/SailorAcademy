@@ -122,7 +122,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4849708447395694401}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8455758083720623226
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,11 +299,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC218\uAD70\uAC70\uB9AC\uB294 \uB2E4\uB978 \uC120\uC6D0\uB4E4\uC758 \uB9D0\uC5D0
-    \uADC0\uB97C \uAE30\uC6B8\uC5EC\uBCF8\uB2E4."
+  m_text: "\uC774\uC5B4\uB9C1 \uB9C8\uC774\uD06C?"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2661c36481369044188d1cb4ec622389, type: 2}
-  m_sharedMaterial: {fileID: 2970114562692397208, guid: 2661c36481369044188d1cb4ec622389, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1894b15fb4fa5ab419e4a1d7d48a8a11, type: 2}
+  m_sharedMaterial: {fileID: 7657570481600669109, guid: 1894b15fb4fa5ab419e4a1d7d48a8a11, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -315,12 +326,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34
+  m_fontSize: 37
   m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 34
+  m_fontSizeMax: 37
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512

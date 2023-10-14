@@ -10,8 +10,8 @@ using Spine.Unity;
 public class DialogSystem : MonoBehaviour
 {
     #region 변수
-    public SheetData sd;
-    public Characters ch;
+    [HideInInspector]public SheetData sd;
+    [HideInInspector] public Characters ch;
 
     [SerializeField] DialogChoice dialogChoice;
     [SerializeField] DialogueShow dialogShow;
@@ -22,26 +22,30 @@ public class DialogSystem : MonoBehaviour
     GuidePrefabs gp;
 
     [SerializeField] TextController tc;
-    [SerializeField] TileDecider td;
+    TileDecider td;
     [SerializeField] int branch;
     [SerializeField] int crtbranch;
 
     [SerializeField] Transform inspectTrans;
     [SerializeField] GameObject backFilter;
     [SerializeField] Image[] imgStanding;
+
     [SerializeField] TMP_Text txtName;
     [SerializeField] TMP_Text txtDialog;
     [SerializeField] GameObject dialogWholeObj;
 
-    [SerializeField] VoiceManager vm;
-    [SerializeField] Inventory iv;
+    public GameObject chapterEnd;
+    RecordOn ro;
+    VoiceManager vm;
+    Inventory iv;
+    [SerializeField] CharacterIntroduce ci;
     AudioSource audiosource;
     [SerializeField] AudioClip dialClip;
 
 
     [Header("Animation")]
     //[SerializeField] AnimationReferenceAsset animRef;
-    [SerializeField] SkeletonGraphic skelAnim;//SkeletonAnimation
+    [SerializeField] SkeletonAnimation skelAnim;//SkeletonAnimation
     public Spine.Skeleton skel;
     public Spine.AnimationState animState;
     //[SerializeField] Animator mentalAnim;
@@ -59,6 +63,7 @@ public class DialogSystem : MonoBehaviour
     bool showDialogue = true;
 
     public bool isSkip=false;
+    public bool canAutoSkip = false;
 
     cNameColor[] cNameCols;
 
@@ -67,7 +72,7 @@ public class DialogSystem : MonoBehaviour
 
     public void ChangeIsSkip(Toggle tog) {
         isSkip = tog.isOn;
-        if(isSkip&& skipItself==null) skipItself=StartCoroutine(SkipItSelf());
+        //if(isSkip&& skipItself==null) skipItself=StartCoroutine(SkipItSelf());
         
     }
 
@@ -76,6 +81,10 @@ public class DialogSystem : MonoBehaviour
     private void Start() {
         gp = transform.GetChild(0).GetComponent<GuidePrefabs>();
         cs = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FirstGearGames.SmoothCameraShaker.CameraShaker>();
+        ro = GameObject.FindGameObjectWithTag("RecordOn").GetComponent<RecordOn>();
+
+        
+        vm = GameObject.FindGameObjectWithTag("Voice").GetComponent<VoiceManager>();
 
         skelAnim.Skeleton.SetToSetupPose();
         skelAnim.Skeleton.SetBonesToSetupPose();
@@ -91,7 +100,11 @@ public class DialogSystem : MonoBehaviour
             }
         }*/
         audiosource = GetComponent<AudioSource>();
-
+        GameObject sheetData = GameObject.FindGameObjectWithTag("SheetData");
+        sd = sheetData.GetComponent<SheetData>();
+        ch = sheetData.GetComponent<Characters>();
+        td = sheetData.GetComponent<TileDecider>();
+        iv = sheetData.GetComponent<Inventory>();
         //구글 스프레드시트 값 가져옴
         td.takefromCSV();
         StartCoroutine(WaitUntilLoad());
@@ -164,11 +177,12 @@ public class DialogSystem : MonoBehaviour
     //cmd를 읽고 해석
     void ReadHCMD(string cmd) {
         if (cmd == "" || cmd == null) return;
-
+        Debug.Log("cmd: "+cmd);
         if (cmd.Contains("s!")) {//s!1
             string length = cmd.Replace("s!", "");
 
         }
+        if (!iv.gameObject.activeInHierarchy) iv = GameObject.FindWithTag("DontDestroy").GetComponent<Inventory>();
 
         if (cmd.Contains("gv_")) {
             string name = cmd.Replace("gv_", "");
@@ -179,6 +193,10 @@ public class DialogSystem : MonoBehaviour
             iv.RemoveItemInInventory(name);
         }
 
+        if (cmd.Contains("행적")) {
+            string[] str = cmd.Split("_");
+            ro.TextOn(str[1]);
+        }
 
         if (cmd.Contains("가이드")) {
             canGoNext = false;
@@ -197,27 +215,49 @@ public class DialogSystem : MonoBehaviour
 
 
         if (!cmd.Contains("=")) { return; }
-
-        if (cmd.Contains("=")) {
-            string[] s = cmd.Split("=");
+        if (cmd.Contains("iv.")) {
+                    cmd = cmd.Replace("iv.", "");
             
-            if (int.TryParse(s[0], out int result)) {
-                iv.ChangeValueInVar(result, int.Parse(s[1]));
-            }
-            else {
-                //s[0]의 값을 string으로 받아와서 맞는 변수를 찾아서 설치하기   
-            }
-        }
-        else if (cmd.Contains("==")) {
-            string[] s = cmd.Split("==");
+                    if (cmd.Contains("==")) {
+                        string[] s = cmd.Split("==");
 
-            if (int.TryParse(s[0], out int result)) {
-                iv.isValueEqual(result, int.Parse(s[1]));
+                        if (int.TryParse(s[0], out int result)) {
+                            iv.isValueEqual(result, int.Parse(s[1]));
+                        }
+                        else {
+                            //s[0]의 값을 string으로 받아와서 맞는 변수를 찾아서 설치하기   
+                        }
+                    }
+                    else if (cmd.Contains("="))
+                    {
+                        string[] s = cmd.Split("=");
+
+                        if (int.TryParse(s[0], out int result))
+                        {
+                            iv.ChangeValueInVar(result, int.Parse(s[1]));
+                        }
+                        else
+                        {
+                            //s[0]의 값을 string으로 받아와서 맞는 변수를 찾아서 설치하기   
+                        }
+                    }
+                }
+
+        else if (cmd.Contains("vh.")) {
+            cmd = cmd.Replace("vh.", "");
+            if (cmd.Contains("=="))
+            {
+                branch = VariableHolder.CompareVariableReturnBranch(cmd);
+                Debug.Log("==호출됨");
             }
-            else {
-                //s[0]의 값을 string으로 받아와서 맞는 변수를 찾아서 설치하기   
+            else if (cmd.Contains("=")) {
+                VariableHolder.SetVariable(cmd);
+
+                Debug.Log("=호출됨");
             }
+
         }
+        
 
     }
 
@@ -268,23 +308,28 @@ public class DialogSystem : MonoBehaviour
         for (int i = 0; i < strs.Length; i++) {
             ChangeSprite(i, strs[i]);
             
+            
         }
 
         string spot = sd.sheetData[page].Spot;
         if (spot != "") {
             int index = Array.IndexOf(strs, spot);
-            if (index < 0) {
+            if (index < 0)
+            {
                 index = 0;
-                
+
             }
             imgStanding[index].transform.parent.gameObject.SetActive(true);
             ChangeSpriteSpotlight(index, spot);
+
+            
+
         }
         
     }
 
     string[] ArrayOfSheetImg(string img) {
-        string[] strs = img.Split(", ");
+        string[] strs = img.Replace(" ", "").Split(",");
 
         for (int i = 0; i < imgStanding.Length; i++) {
             imgStanding[i].transform.parent.gameObject.SetActive(i < strs.Length);
@@ -329,8 +374,19 @@ public class DialogSystem : MonoBehaviour
     }
 
     void ChangeSpriteSpotlight(int index, string name) {
-        ChangeSprite(index, name);
-        imgStanding[index].color = Color.white;
+        if (!name.Contains("c_"))
+        {
+            dialogShow.HideMidItem();
+            ChangeSprite(index, name);
+            imgStanding[index].color = Color.white;
+        }
+        else
+        {
+            dialogShow.LoadMidItem(name);
+            imgStanding[index].color = Color.clear;
+        }
+
+        
     }
 
     public void NextDialog() {
@@ -395,8 +451,10 @@ public class DialogSystem : MonoBehaviour
         friendDown.AddSkin(skelAnim.SkeletonData.FindSkin("Friend/down/Friend-0"));
         mentalUp.AddSkin(skelAnim.SkeletonData.FindSkin("Mental/up/Mental0"));
         mentalDown.AddSkin(skelAnim.SkeletonData.FindSkin("Mental/down/Mental-0"));*/
-
-        if (cmd.Equals("선택지")) {
+        canAutoSkip = false;
+        skelAnim.gameObject.SetActive(false);
+        if (cmd.Equals("선택지"))
+        {
             canGoNext = false;
             int choices = int.Parse(sd.sheetData[page].Img);
 
@@ -409,7 +467,8 @@ public class DialogSystem : MonoBehaviour
             int branchB = int.Parse(sd.sheetData[page + 2].Img);
             int lockB = IntReadHCMD(sd.sheetData[page + 2].Voice);
 
-            if (choices.Equals(3)) {
+            if (choices.Equals(3))
+            {
                 string dialogC = sd.sheetData[page + 3].Dialog;
                 int branchC = int.Parse(sd.sheetData[page + 3].Img);
                 int lockC = IntReadHCMD(sd.sheetData[page + 3].Voice);
@@ -417,70 +476,86 @@ public class DialogSystem : MonoBehaviour
                 dialogChoice.SetChoice(sd.sheetData[page].Dialog, dialogA, branchA, lockA, dialogB, branchB, lockB, dialogC, branchC, lockC);
 
             }
-            else {
+            else
+            {
                 dialogChoice.SetChoice(sd.sheetData[page].Dialog, dialogA, branchA, lockA, dialogB, branchB, lockB);
 
             }
-
+            ChangeSpriteSpotlight(0, sd.sheetData[page].Spot);
             backFilter.SetActive(true);
 
             //page += choices;
 
         }
-        else if (cmd.Equals("친밀도")) {
-
+        else if (cmd.Equals("친밀도"))
+        {
+            skelAnim.gameObject.SetActive(true);
+            canAutoSkip = true;
+            Spine.Skeleton skeleton = new(skelAnim.Skeleton.Data);
             string relation = sd.sheetData[page].Dialog;
             string[] split = relation.Split(":");
             string[] cas = split[0].Split(",");
             int n = 0;
-            if (split[1].Contains("상승")) {
+            if (split[1].Contains("상승"))
+            {
                 n = 1;
                 //relationAnim.SetTrigger("up");
-                skelAnim.Skeleton.SetSkin("Friend/up/Friend0");
+                skeleton.SetSkin("Friend");
+                //skelAnim.Skeleton.SetSkin("Friend0");
                 //skelAnim.Skeleton.SetSkin(friendUp);
-                //skelAnim.initialSkinName = "Friend/up/Friend0";
+                skelAnim.initialSkinName = "Friend";
                 //skelAnim.AnimationState.
                 //skelAnim.startingAnimation = "Up";
-                skelAnim.AnimationState.SetAnimation(0, "Up", true);
+                skelAnim.AnimationState.SetAnimation(0, "Up1", true);
                 //skelAnim.AnimationState.SetAnimation(0, "up", true);
                 audiosource.PlayOneShot(rel_updown[0]);
             }
 
-            if (split[1].Contains("하락")) {
+            if (split[1].Contains("하락"))
+            {
                 n = -1;
                 //relationAnim.SetTrigger("down");
-                skelAnim.Skeleton.SetSkin("Friend/down/Friend-0");
+                skeleton.SetSkin("Friend");
+                //skelAnim.Skeleton.SetSkin("Friend-0");
                 //skelAnim.Skeleton.SetSkin(friendDown);
-                //skelAnim.initialSkinName = "Friend/down/Friend-0";
+                skelAnim.initialSkinName = "Friend";
                 //skelAnim.startingAnimation = "Down";
-                skelAnim.AnimationState.SetAnimation(0, "Down", true);
+                skelAnim.AnimationState.SetAnimation(0, "Down1", true);
                 //skelAnim.AnimationState.SetAnimation(0, "down", true);
                 audiosource.PlayOneShot(rel_updown[1]);
             }
+
+            skeleton.SetSlotsToSetupPose();
             skelAnim.Skeleton.SetSlotsToSetupPose();
             skelAnim.Update(0);
-            skelAnim.AnimationState.Apply(skelAnim.Skeleton);
+            skelAnim.AnimationState.Apply(skeleton);
+            //skelAnim.AnimationState.Apply(skelAnim.Skeleton);
+
             page++;
 
-            for (int i = 0; i < cas.Length; i++) {
+            for (int i = 0; i < cas.Length; i++)
+            {
                 ChangeRelation(cas[i], n);
 
             }
 
         }
-        else if (cmd.Equals("멘탈")) {
-
+        else if (cmd.Equals("멘탈"))
+        {
+            skelAnim.gameObject.SetActive(true);
+            canAutoSkip = true;
             string mental = sd.sheetData[page].Dialog;
             string[] split = mental.Split(":");
             string[] cas = split[0].Split(",");
             int n = 0;
-            if (split[1].Contains("상승")) {
+            if (split[1].Contains("상승"))
+            {
                 n = 1;
-                skelAnim.Skeleton.SetSkin("Mental/up/Mental0");
-                //skelAnim.initialSkinName = "Mental/up/Mental0";
+                skelAnim.Skeleton.SetSkin("Mental");
+                skelAnim.initialSkinName = "Mental";
                 //skelAnim.startingAnimation = "Up";
-               // skelAnim.Skeleton.SetSkin(mentalUp);
-                skelAnim.AnimationState.SetAnimation(0, "Up", true);
+                // skelAnim.Skeleton.SetSkin(mentalUp);
+                skelAnim.AnimationState.SetAnimation(0, "Up1", true);
                 //skelAnim.AnimationState.SetAnimation(0, "up", true);
                 //mentalAnim.SetTrigger("up");
                 audiosource.PlayOneShot(men_updown[0]);
@@ -488,56 +563,84 @@ public class DialogSystem : MonoBehaviour
             //Friend/down/Friend-0
             //Mental / up / Mental0
 
-            if (split[1].Contains("하락")) {
+            if (split[1].Contains("하락"))
+            {
                 n = -1;
-               skelAnim.Skeleton.SetSkin("Mental/down/Mental-0");
-                //skelAnim.initialSkinName = "Mental/down/Mental-0";
+                skelAnim.Skeleton.SetSkin("Mental");
+                skelAnim.initialSkinName = "Mental";
                 //skelAnim.startingAnimation = "Down";
                 //skelAnim.Skeleton.SetSkin(mentalDown);
-                skelAnim.AnimationState.SetAnimation(0, "Down", true);
+                skelAnim.AnimationState.SetAnimation(0, "Down1", true);
                 //skelAnim.AnimationState.SetAnimation(0, "down", true);
                 //mentalAnim.SetTrigger("down");
                 audiosource.PlayOneShot(men_updown[1]);
             }
             skelAnim.Skeleton.SetSlotsToSetupPose();
             skelAnim.Update(0);
+
             skelAnim.AnimationState.Apply(skelAnim.Skeleton);
             page++;
 
-            for (int i = 0; i < cas.Length; i++) {
+            for (int i = 0; i < cas.Length; i++)
+            {
                 ChangeMental(cas[i], n);
 
             }
 
         }
-        else if (cmd.Equals("정보")) {
+        else if (cmd.Equals("정보"))
+        {
             infoSystem.ShowInfo(sd.sheetData[page].Dialog);
             showDialogue = false;
         }
-        if (cmd.Equals("시스템")) {
+        else if (cmd.Equals("시스템"))
+        {
+            canAutoSkip = false;
             string CMD = sd.sheetData[page].CMD;
-            
-            if (CMD.Contains("조사_")) {
+
+            if (CMD.Contains("조사_"))
+            {
 
                 string[] str = CMD.Split("_");
 
-                if (inspectObj == null) {
+                if (inspectObj == null)
+                {
                     inspectObj = Instantiate(Resources.Load<GameObject>(instanceFilePath + str[1]), inspectTrans);
 
                 }
                 else if (inspectObj.activeInHierarchy == false) { inspectObj.SetActive(true); }
-                
+
                 ExitDialogue();
             }
-            else if (CMD.Contains("Ins_")) {
+            else if (CMD.Contains("Ins_"))
+            {
                 string[] str = CMD.Split("_");
-                
+
                 Instantiate(Resources.Load<GameObject>(instanceFilePath + str[1]));
-                
+
                 ExitDialogue();
+            }
+            else if (CMD.Contains("소개_"))
+            {
+                string[] str = CMD.Split("_");
+                string info = sd.sheetData[page].Dialog;
+                page++;
+                string content = sd.sheetData[page].Dialog;
+                ci.gameObject.SetActive(true);
+                ci.SetIntroduce(str[1], info, content);
+                Debug.Log(str[1] + info + content);
             }
         }
-       
+        else if (cmd.Equals("챕터끝"))
+        {
+            chapterEnd.SetActive(true);
+            ExitDialogue();
+        }
+        else
+        {
+            canAutoSkip = true;
+            if (ci.gameObject.activeInHierarchy) ci.gameObject.SetActive(false);
+        }
 
     }
 
@@ -638,14 +741,14 @@ public class DialogSystem : MonoBehaviour
     }
 
     private void Update() {
-        if (canGoNext && !isSkip) {
+        if (canGoNext && (!isSkip || !canAutoSkip)) {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) {
                 ShowDialog();
             }
         }
 
     }
-
+    /*
     //자동스킵 기능
     IEnumerator SkipItSelf() {
         WaitForSeconds wait = new(1.5f);
@@ -657,6 +760,8 @@ public class DialogSystem : MonoBehaviour
             }
             //new WaitUntil(() => tc.DoTextChanged && tc.hasTextChanged);
         }
-    }
+    }*/
+
+    
 
 }

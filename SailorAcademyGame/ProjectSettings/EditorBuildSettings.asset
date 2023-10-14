@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/01. Scenes/Loading.unity
     guid: 46168dc7035d5c84ca3e958b33421ffb
   - enabled: 1
+    path: Assets/01. Scenes/SaveAndLoad.unity
+    guid: ae9154a17ed2e7f49867285de988f390
+  - enabled: 1
     path: Assets/01. Scenes/Prologue.unity
     guid: 12c1a964b403e484db3271afc3688537
+  - enabled: 1
+    path: Assets/01. Scenes/Chapter1.unity
+    guid: f94ba672c02eb44498409ffabc58067a
   m_configObjects: {}

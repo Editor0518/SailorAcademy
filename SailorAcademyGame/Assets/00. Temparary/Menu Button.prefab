@@ -267,8 +267,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC0C8\uB85C\uD558\uAE30"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2661c36481369044188d1cb4ec622389, type: 2}
-  m_sharedMaterial: {fileID: 2970114562692397208, guid: 2661c36481369044188d1cb4ec622389, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: acf1b7a18d855c94789153c02e2a4c82, type: 2}
+  m_sharedMaterial: {fileID: 2970114562692397208, guid: acf1b7a18d855c94789153c02e2a4c82, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -292,8 +292,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

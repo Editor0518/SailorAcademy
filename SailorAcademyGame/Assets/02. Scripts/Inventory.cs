@@ -29,8 +29,6 @@ public class Inventory : MonoBehaviour
 
     public List<Var> variableList;
 
-
-
     public void ChangeValueInVar(int index, int value) {
         if (index >= variableList.Count) { return; }
         Var newlist = new();
@@ -49,6 +47,7 @@ public class Inventory : MonoBehaviour
     }
 
     public void AddItemInInventory(string itemName) {
+        /*
         string path = Path.Combine("Assets/04. Prefab/Items", itemName+".prefab");
         GameObject obj = (GameObject) AssetDatabase.LoadAssetAtPath(path, typeof(GameObject));
         if (obj == null) { Debug.Log("파일이 존재하지 않습니다!!"+path); return; }
@@ -56,6 +55,7 @@ public class Inventory : MonoBehaviour
             if (content.GetChild(i).childCount == 0) {
                 Instantiate(obj, content.GetChild(i));
                 Debug.Log("인벤토리에 추가되었습니다.->" + i);
+                SaveManager.AddNewItemAndSave(itemName);
                 break;
             }
 
@@ -63,22 +63,71 @@ public class Inventory : MonoBehaviour
                 Debug.Log("저장 공간이 부족합니다!"); 
             }
         }
+        */
+        SaveData data = SaveManager.LoadGame();
+        if (data.items.Count <= content.childCount)
+        {
+            SaveManager.AddNewItemAndSave(itemName);
+
+        }
+        else {
+            Debug.Log("저장 공간이 부족합니다!");
+        }
+
+        LoadSavedData();
     }
 
     public void RemoveItemInInventory(string itemName) {
-        
+
+        SaveManager.RemoveNewItemAndSave(itemName);
+        /*
         for (int i = content.childCount-1; i >= 0; i--) {
+            
             if (content.GetChild(i).childCount > 0) {
+                
                 if (content.GetChild(i).GetChild(0).GetComponent<Item>().itemName== itemName) {
                     GameObject obj = content.GetChild(i).gameObject;
                     Destroy(obj);
                     Instantiate(tile, content);
                     Debug.Log("인벤토리에서 제거되었습니다.->"+i);
+                    SaveManager.RemoveNewItemAndSave(itemName);
                     break;
                 }
                 
             }
+        }*/
+
+        LoadSavedData();
+    }
+
+
+
+    public void LoadSavedData() {
+        SaveData data = SaveManager.LoadGame();
+
+        
+        for (int i = 0; i < content.childCount; i++)
+        {
+            //clear content child(a tile)
+            if (content.GetChild(i).childCount>0) {
+                for (int n = 0; n < content.GetChild(i).childCount; n++) {
+                    Destroy(content.GetChild(i).GetChild(n).gameObject);
+                }
+                
+            }
+            if (data.items.Count > i) {
+                string path = Path.Combine("Assets/04. Prefab/Items", data.items[i] + ".prefab");
+                GameObject obj = (GameObject)AssetDatabase.LoadAssetAtPath(path, typeof(GameObject));
+                if (obj == null) { Debug.Log("파일이 존재하지 않습니다!!" + path); return; }
+                Instantiate(obj, content.GetChild(i));
+                Debug.Log("인벤토리에 추가되었습니다.->" +data.items[i] + i);
+                
+            }
+            
+
+            
         }
+
     }
 
 }

@@ -8,7 +8,7 @@ public class AccessToDialogueSystem : MonoBehaviour
 {
     DialogSystem ds;
 
-    [Header("มฆศ๙")]
+    [Header("มฆวั")]
     public bool hasLimitToRequire = false;
     public Image blockImg;
 
