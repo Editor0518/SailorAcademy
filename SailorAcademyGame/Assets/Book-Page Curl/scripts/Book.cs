@@ -67,6 +67,13 @@ public class Book : MonoBehaviour {
     //current flip mode
     FlipMode mode;
 
+    [Header("다이얼로그")]
+    public AccessToDialogueSystem dialog;
+    public int pageA = 0;
+    public GameObject enableA;
+    public int pageB = 1;
+
+
     void Start()
     {
         if (!canvas) canvas=GetComponentInParent<Canvas>();
@@ -363,6 +370,17 @@ public class Book : MonoBehaviour {
                 TweenForward();
         }
     }
+
+
+    public void OnClickAButton() {
+        TweenForward();
+        TweenForward();
+        TweenForward();
+        TweenForward();
+        
+
+    }
+
     Coroutine currentCoroutine;
     void UpdateSprites()
     {
@@ -394,7 +412,40 @@ public class Book : MonoBehaviour {
         ShadowLTR.gameObject.SetActive(false);
         if (OnFlip != null)
             OnFlip.Invoke();
+        //****##
+        StartDialogue();
     }
+
+    bool didPageA = false;
+    bool didPageB = false;
+    
+    
+    public void StartDialogue() {
+        
+        if (currentPage.Equals(pageA)&&!didPageA) {
+            //dialog.ds.NextDialog();
+            dialog.MoveBranch(101);
+            
+
+            enableA.SetActive(true);
+            dialog.RequireNumPlus(1);
+            didPageA = true;
+        }
+        else {
+            if (enableA.activeInHierarchy) enableA.SetActive(false);
+            
+        }
+        if (currentPage.Equals(pageB)&& !didPageB) {
+            //dialog.ds.NextDialog();
+           
+            dialog.MoveBranch(102);
+
+            dialog.RequireNumPlus(1);
+            didPageB = true;
+        }
+    }
+
+
     public void TweenBack()
     {
         if (mode == FlipMode.RightToLeft)

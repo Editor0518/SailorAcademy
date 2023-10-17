@@ -6,7 +6,7 @@ using TMPro;
 
 public class AccessToDialogueSystem : MonoBehaviour
 {
-    DialogSystem ds;
+    [HideInInspector]public DialogSystem ds;
 
     [Header("มฆวั")]
     public bool hasLimitToRequire = false;
@@ -59,6 +59,7 @@ public class AccessToDialogueSystem : MonoBehaviour
 
 
     public void MoveBranch(int branch) {
+        ds.dialogWholeObj.SetActive(true);
         ds.Movebranch(branch);
     }
 

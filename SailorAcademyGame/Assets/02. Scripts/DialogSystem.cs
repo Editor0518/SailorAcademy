@@ -32,7 +32,7 @@ public class DialogSystem : MonoBehaviour
 
     [SerializeField] TMP_Text txtName;
     [SerializeField] TMP_Text txtDialog;
-    [SerializeField] GameObject dialogWholeObj;
+    public GameObject dialogWholeObj;
 
     public GameObject chapterEnd;
     RecordOn ro;
@@ -133,7 +133,7 @@ public class DialogSystem : MonoBehaviour
             else if (sd.sheetData[i].Branch.Length > 0) {
                 if (sd.sheetData[i].Branch.Equals(branch.ToString())) {
                     page = i;
-
+                    Debug.Log(sd.sheetData[i].Branch);
                     break;
                 }
             }
@@ -451,7 +451,8 @@ public class DialogSystem : MonoBehaviour
         friendDown.AddSkin(skelAnim.SkeletonData.FindSkin("Friend/down/Friend-0"));
         mentalUp.AddSkin(skelAnim.SkeletonData.FindSkin("Mental/up/Mental0"));
         mentalDown.AddSkin(skelAnim.SkeletonData.FindSkin("Mental/down/Mental-0"));*/
-        canAutoSkip = false;
+
+        if(crtbranch.Equals(branch)) canAutoSkip = false;
         skelAnim.gameObject.SetActive(false);
         if (cmd.Equals("선택지"))
         {
@@ -600,8 +601,9 @@ public class DialogSystem : MonoBehaviour
 
             if (CMD.Contains("조사_"))
             {
-
-                string[] str = CMD.Split("_");
+                Debug.Log("조사");
+                string[] str= { "", ""};
+                if (CMD.Split("_")!=null) str = CMD.Split("_");
 
                 if (inspectObj == null)
                 {
@@ -610,7 +612,9 @@ public class DialogSystem : MonoBehaviour
                 }
                 else if (inspectObj.activeInHierarchy == false) { inspectObj.SetActive(true); }
 
+                page++;
                 ExitDialogue();
+               
             }
             else if (CMD.Contains("Ins_"))
             {
@@ -727,8 +731,10 @@ public class DialogSystem : MonoBehaviour
 
     public void Movebranch(int branch) {
         this.branch = branch;
-        if (!dialogWholeObj.activeInHierarchy) dialogWholeObj.SetActive(true);
+        crtbranch = branch;
+        
         PageSettingOnBranch();
+        if (!dialogWholeObj.activeInHierarchy) dialogWholeObj.SetActive(true);
         canGoNext = true;
         NextDialog();
     }

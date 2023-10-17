@@ -22,7 +22,7 @@ public class InfoSystem : MonoBehaviour
         string[] str = content.Split(" : ");
 
         titleTxt.text = str[0];//< b > 범죄자 </ b >
-        contentTxt.text = str[1];//피어리스호의 캡틴, 오민현을 부르는 말. 
+        contentTxt.text = str[1];//피어리스호의 캡틴, 오민현을 부르는 말.
         whole.SetActive(true);
     }
 
