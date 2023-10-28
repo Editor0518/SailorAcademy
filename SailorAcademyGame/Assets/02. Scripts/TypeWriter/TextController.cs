@@ -349,7 +349,7 @@ public class TextController : MonoBehaviour
                     isTyping = false;
                     
                 }
-                if (dialog.isSkip && dialog.canAutoSkip && !isTyping)
+                if (dialog.isSkip>0 && dialog.canAutoSkip && !isTyping)
                 {
                         Debug.Log("Next");
                         dialog.ShowDialog();

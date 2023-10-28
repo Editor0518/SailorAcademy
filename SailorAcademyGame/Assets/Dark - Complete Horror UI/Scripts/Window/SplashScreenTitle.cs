@@ -14,7 +14,7 @@ namespace Michsky.UI.Dark
         Animator objAnimator;
 
         [Header("Settings")]
-        [Range(3, 30)] public float screenTime = 8;
+        [Range(0, 30)] public float screenTime = 8;
         [Range(0.1f, 1)] public float titleSpeed = 1;
         [Range(1, 10)] public float transitionMultiplier = 4;
 

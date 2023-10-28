@@ -16,7 +16,6 @@ namespace Michsky.UI.Dark
             BASIC,
             ADVANCED
         }
-
         void Awake()
         {
             if (UIManagerAsset == null)

@@ -6,25 +6,38 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEditor;
 using Spine.Unity;
+using Michsky.UI.Dark;
 
 public class DialogSystem : MonoBehaviour
 {
     #region 변수
-    [HideInInspector]public SheetData sd;
+    [HideInInspector] public SheetData sd;
     [HideInInspector] public Characters ch;
 
     [SerializeField] DialogChoice dialogChoice;
     [SerializeField] DialogueShow dialogShow;
     [SerializeField] InfoSystem infoSystem;
     [SerializeField] DialogDB dialogDB;
+    [SerializeField] FriendEventSystem friendEvent;
 
     FirstGearGames.SmoothCameraShaker.CameraShaker cs;
     GuidePrefabs gp;
 
-    [SerializeField] TextController tc;
-    TileDecider td;
-    [SerializeField] int branch;
-    [SerializeField] int crtbranch;
+    public TextController tc;
+    [HideInInspector] public TileDecider td;
+    public int branch;
+    //public int prevBranch;//기록 branch
+    public int crtbranch;
+
+    public int page = 0;
+
+    public bool canGoNext = true;
+
+    bool showDialogue = true;
+
+    public int isSkip =0;//false;
+    //public bool isSkip=false;
+    public bool canAutoSkip = false;
 
     [SerializeField] Transform inspectTrans;
     [SerializeField] GameObject backFilter;
@@ -42,6 +55,8 @@ public class DialogSystem : MonoBehaviour
     AudioSource audiosource;
     [SerializeField] AudioClip dialClip;
 
+    [Header("Communication")]
+    public Canvas com_canvas;
 
     [Header("Animation")]
     //[SerializeField] AnimationReferenceAsset animRef;
@@ -55,25 +70,29 @@ public class DialogSystem : MonoBehaviour
 
 
 
+    [Header("Guide")]
+    public GameObject guideWhole;
+    ModalWindowManager modal;
+    public TMP_Text guideTitle;
+    public TMP_Text guideContent;
+
+    string guideFilePath = "guide/";
+
     [SerializeField] Transform guideTrans;
-
-    public int page = 0;
-    public bool canGoNext = true;
-
-    bool showDialogue = true;
-
-    public bool isSkip=false;
-    public bool canAutoSkip = false;
 
     cNameColor[] cNameCols;
 
 
     #endregion
 
-    public void ChangeIsSkip(Toggle tog) {
-        isSkip = tog.isOn;
+    public void ChangeIsSkip(TMP_Dropdown drop){//Toggle tog) {
+        isSkip = drop.value;//tog.isOn;
         //if(isSkip&& skipItself==null) skipItself=StartCoroutine(SkipItSelf());
-        
+
+    }
+
+    public void ChangeIsSkip(int value) {
+        isSkip = value;
     }
 
     Coroutine skipItself;
@@ -83,7 +102,7 @@ public class DialogSystem : MonoBehaviour
         cs = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FirstGearGames.SmoothCameraShaker.CameraShaker>();
         ro = GameObject.FindGameObjectWithTag("RecordOn").GetComponent<RecordOn>();
 
-        
+        modal = guideWhole.GetComponent<ModalWindowManager>();
         vm = GameObject.FindGameObjectWithTag("Voice").GetComponent<VoiceManager>();
 
         skelAnim.Skeleton.SetToSetupPose();
@@ -106,9 +125,16 @@ public class DialogSystem : MonoBehaviour
         td = sheetData.GetComponent<TileDecider>();
         iv = sheetData.GetComponent<Inventory>();
         //구글 스프레드시트 값 가져옴
+        LoadSheet();
+    }
+
+    //구글 스프레드시트 값 가져옴
+    public void LoadSheet() { 
         td.takefromCSV();
         StartCoroutine(WaitUntilLoad());
     }
+
+
 
     IEnumerator WaitUntilLoad() {
         yield return new WaitUntil(()=>sd.sheetData.Count > 0);
@@ -120,8 +146,9 @@ public class DialogSystem : MonoBehaviour
                 break;
             }
         }
-        branch = int.Parse(sd.sheetData[page].Branch);//dialogDB.prolog[0].branch;
-        ShowDialog();
+        
+            branch = int.Parse(sd.sheetData[page].Branch);//dialogDB.prolog[0].branch;
+        if(!td.isEvent)ShowDialog();
         StartCoroutine(tc.TextAnimation());
         StartCoroutine(tc.TextTyping());
     }
@@ -150,16 +177,30 @@ public class DialogSystem : MonoBehaviour
         if (tc.isTyping) {  
             return;
         }
-        if (page >= sd.sheetData.Count) { Debug.Log("넘침"); ExitDialogue(); gameObject.SetActive(false); return; }
+        
+        if (page >= sd.sheetData.Count&&!friendEvent.isOn) { Debug.Log("넘침"); 
+            //ExitDialogue(); 
+            //gameObject.SetActive(false);  
+            return;
+        }
         
         if (infoSystem.whole.activeInHierarchy) infoSystem.whole.SetActive(false);
 
 
         if (backFilter.activeInHierarchy) backFilter.SetActive(false);
+
+       
         showDialogue = true;
         ExecuteCmd(sd.sheetData[page].Name);
-
+         if (waitTime > 0) {
+            StartCoroutine("WaitSomeSec", waitTime);
+            tc.TextChanged("             ");
+            txtName.text = sd.sheetData[page].Name;
+            return;
+        }
+        
         if (showDialogue) {
+            if (sd.sheetData.Count <= 0) return;
             SetDialog(sd.sheetData[page].Name);
             PlayVoiceFromList();
         }
@@ -177,7 +218,7 @@ public class DialogSystem : MonoBehaviour
     //cmd를 읽고 해석
     void ReadHCMD(string cmd) {
         if (cmd == "" || cmd == null) return;
-        Debug.Log("cmd: "+cmd);
+        //Debug.Log("cmd: "+cmd);
         if (cmd.Contains("s!")) {//s!1
             string length = cmd.Replace("s!", "");
 
@@ -205,14 +246,22 @@ public class DialogSystem : MonoBehaviour
             GameObject guide = Resources.Load<GameObject>(guideFilePath + str[1]);
             GuideInfo info = guide.GetComponent<GuideInfo>();
 
-            guideWhole.SetActive(true);
-            guideTitle.text = info.title;
-            guideContent.text = info.content;
+            //guideWhole.SetActive(true);
+           
+            modal.title = info.title;
+            modal.description = info.content;
+            modal.UpdateUI();
+            modal.ModalWindowIn();
+            //guideTitle.text = info.title;
+            //guideContent.text = info.content;
 
             //txtDialog.enabled = false;
             //txtName.enabled = false;
         }
-
+        if (cmd.Contains("챗_")) {
+            string[] str = cmd.Split("_");
+            com_canvas.transform.GetChild(0).GetComponent<Communication>().AddOneChat(str[1]);
+        }
 
         if (!cmd.Contains("=")) { return; }
         if (cmd.Contains("iv.")) {
@@ -454,6 +503,7 @@ public class DialogSystem : MonoBehaviour
 
         if(crtbranch.Equals(branch)) canAutoSkip = false;
         skelAnim.gameObject.SetActive(false);
+        com_canvas.enabled = false;
         if (cmd.Equals("선택지"))
         {
             canGoNext = false;
@@ -507,7 +557,7 @@ public class DialogSystem : MonoBehaviour
                 skelAnim.initialSkinName = "Friend";
                 //skelAnim.AnimationState.
                 //skelAnim.startingAnimation = "Up";
-                skelAnim.AnimationState.SetAnimation(0, "Up1", true);
+                skelAnim.AnimationState.SetAnimation(0, "Up1", false);
                 //skelAnim.AnimationState.SetAnimation(0, "up", true);
                 audiosource.PlayOneShot(rel_updown[0]);
             }
@@ -521,7 +571,7 @@ public class DialogSystem : MonoBehaviour
                 //skelAnim.Skeleton.SetSkin(friendDown);
                 skelAnim.initialSkinName = "Friend";
                 //skelAnim.startingAnimation = "Down";
-                skelAnim.AnimationState.SetAnimation(0, "Down1", true);
+                skelAnim.AnimationState.SetAnimation(0, "Down1", false);
                 //skelAnim.AnimationState.SetAnimation(0, "down", true);
                 audiosource.PlayOneShot(rel_updown[1]);
             }
@@ -531,8 +581,9 @@ public class DialogSystem : MonoBehaviour
             skelAnim.Update(0);
             skelAnim.AnimationState.Apply(skeleton);
             //skelAnim.AnimationState.Apply(skelAnim.Skeleton);
-
+            waitTime = 0.75f;
             page++;
+
 
             for (int i = 0; i < cas.Length; i++)
             {
@@ -556,7 +607,7 @@ public class DialogSystem : MonoBehaviour
                 skelAnim.initialSkinName = "Mental";
                 //skelAnim.startingAnimation = "Up";
                 // skelAnim.Skeleton.SetSkin(mentalUp);
-                skelAnim.AnimationState.SetAnimation(0, "Up1", true);
+                skelAnim.AnimationState.SetAnimation(0, "Up1", false);
                 //skelAnim.AnimationState.SetAnimation(0, "up", true);
                 //mentalAnim.SetTrigger("up");
                 audiosource.PlayOneShot(men_updown[0]);
@@ -571,7 +622,7 @@ public class DialogSystem : MonoBehaviour
                 skelAnim.initialSkinName = "Mental";
                 //skelAnim.startingAnimation = "Down";
                 //skelAnim.Skeleton.SetSkin(mentalDown);
-                skelAnim.AnimationState.SetAnimation(0, "Down1", true);
+                skelAnim.AnimationState.SetAnimation(0, "Down1", false);
                 //skelAnim.AnimationState.SetAnimation(0, "down", true);
                 //mentalAnim.SetTrigger("down");
                 audiosource.PlayOneShot(men_updown[1]);
@@ -580,6 +631,7 @@ public class DialogSystem : MonoBehaviour
             skelAnim.Update(0);
 
             skelAnim.AnimationState.Apply(skelAnim.Skeleton);
+            waitTime = 0.75f;
             page++;
 
             for (int i = 0; i < cas.Length; i++)
@@ -601,9 +653,8 @@ public class DialogSystem : MonoBehaviour
 
             if (CMD.Contains("조사_"))
             {
-                Debug.Log("조사");
-                string[] str= { "", ""};
-                if (CMD.Split("_")!=null) str = CMD.Split("_");
+                string[] str = { "", "" };
+                if (CMD.Split("_") != null) str = CMD.Split("_");
 
                 if (inspectObj == null)
                 {
@@ -614,7 +665,22 @@ public class DialogSystem : MonoBehaviour
 
                 page++;
                 ExitDialogue();
-               
+
+            }
+            else if (CMD.Contains("커뮤"))
+            {
+                string[] str = { "", "" };
+                if (CMD.Split("_") != null) str = CMD.Split("_");
+
+                if (inspectObj == null)
+                {
+                    inspectObj = Instantiate(Resources.Load<GameObject>(instanceFilePath + str[1]), com_canvas.transform);
+
+                }
+                else if (inspectObj.activeInHierarchy == false) { inspectObj.SetActive(true); }
+
+                //page++;
+                com_canvas.enabled = true;
             }
             else if (CMD.Contains("Ins_"))
             {
@@ -640,6 +706,20 @@ public class DialogSystem : MonoBehaviour
             chapterEnd.SetActive(true);
             ExitDialogue();
         }
+        else if (cmd.Equals("이벤트")) {
+            canGoNext = false;
+
+            string[] str = sd.sheetData[page].CMD.Split("_"); Debug.Log(str[0]);
+            if (str[0].Equals("open")) {
+                Debug.Log("event");
+                friendEvent.StartEvent(int.Parse(str[1]));
+            }
+            else if (str[0].Equals("close"))
+            {
+                Debug.Log("eventFinish");
+                friendEvent.FinishEvent(int.Parse(str[1]));
+            }
+        }
         else
         {
             canAutoSkip = true;
@@ -652,19 +732,23 @@ public class DialogSystem : MonoBehaviour
     string instanceFilePath = "instance/";
 
 
+    float waitTime = 0; 
+
+    IEnumerator WaitSomeSec(float time) {
+        yield return new WaitForSeconds(time);
+        waitTime = 0;
+        ShowDialog();
+
+        yield return null;
+    }
+
+
     public void PagePlusOne() {
         txtDialog.enabled = true;
         txtName.enabled = true;
         canGoNext = true;
         //ShowDialog();
     }
-
-    [Header("Guide")]
-    public GameObject guideWhole;
-    public TMP_Text guideTitle;
-    public TMP_Text guideContent;
-
-    string guideFilePath = "guide/";
 
 
     void ChangeRelation(string name, int n) {
@@ -747,11 +831,16 @@ public class DialogSystem : MonoBehaviour
     }
 
     private void Update() {
-        if (canGoNext && (!isSkip || !canAutoSkip)) {
+        if (canGoNext && (isSkip.Equals(0) || !canAutoSkip)) {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) {
                 ShowDialog();
             }
         }
+
+        if (isSkip.Equals(2)&& canGoNext) { 
+            Time.timeScale = 16f;
+        }
+        else { Time.timeScale = 1f; }
 
     }
     /*

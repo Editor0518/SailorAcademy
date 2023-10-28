@@ -40,7 +40,9 @@ public class TileDecider : MonoBehaviour
     protected string path2= "?key=AIzaSyActNUgOKySleTsSLNYMM3OE0qB_KXee8o";
     [HideInInspector] string sheetName;
     public int chap=-1;
+    public bool isEvent = false;
     string[] chapter = { "prolog (N)", "ch1 (N)", "ch2", "ch3", "ch4" };
+    string friendEvnt = "event";
 
     /*
     public void SetSheetName(int chap=-1) {
@@ -51,6 +53,7 @@ public class TileDecider : MonoBehaviour
     public string Path() {
         sheetName = chapter[int.Parse(PlayerPrefs.GetString("DftSave", "0"))];//chap
         if (chap >= 0) sheetName = chapter[chap];
+        if (isEvent) sheetName = friendEvnt;
         return string.Concat(path1, sheetName, path2);
     }
 

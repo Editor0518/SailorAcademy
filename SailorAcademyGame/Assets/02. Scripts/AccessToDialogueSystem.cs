@@ -49,7 +49,7 @@ public class AccessToDialogueSystem : MonoBehaviour
             }
             return;
         }
-
+        MoveBranch(0);
         MoveBranch(branch);
         gameObject.SetActive(false);
         DestroyThis();
@@ -60,6 +60,7 @@ public class AccessToDialogueSystem : MonoBehaviour
 
     public void MoveBranch(int branch) {
         ds.dialogWholeObj.SetActive(true);
+        if(ds.com_canvas.enabled) ds.com_canvas.enabled = false;
         ds.Movebranch(branch);
     }
 

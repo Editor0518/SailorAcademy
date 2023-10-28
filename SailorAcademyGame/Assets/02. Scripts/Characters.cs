@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Characters : MonoBehaviour
 {
+    [Header("테스트 용")]
     public Color col;
 
     [System.Serializable]
@@ -22,9 +23,10 @@ public class Characters : MonoBehaviour
         public float mental;
         public string color;
         public int isAlive; //0=살아있음, -1=죽음, 1=실종.
+        public Sprite jobSprite;
         public StandingImg[] standingImg;
 
-        public Character(string strName, string code, string job, float relation, float mental, string color, int isAlive, StandingImg[] standingImg){
+        public Character(string strName, string code, string job, float relation, float mental, string color, int isAlive, Sprite jobSprite, StandingImg[] standingImg){
             this.strName = strName;
             this.code = code;
             this.job = job;
@@ -32,6 +34,7 @@ public class Characters : MonoBehaviour
             this.mental = mental;
             this.color = color;
             this.isAlive = isAlive;
+            this.jobSprite = jobSprite;
             this.standingImg = standingImg;
         }
 
@@ -49,14 +52,15 @@ public class Characters : MonoBehaviour
                 info += chracters[i].job + ",";
                 info += chracters[i].relation + ",";
                 info += chracters[i].mental + ",";
-                info += chracters[i].isAlive;
+                info += chracters[i].isAlive + ",";
+                info += chracters[i].color;
                 break;
             }
         }
         return info;//이름,직업,관계도,멘탈,생사여부 순서로 리턴
     }
 
-    Character CreateCharacterType(string strName, string code, string job, float relation, float mental, string color, int isAlive, StandingImg[] standingImg) {
+    Character CreateCharacterType(string strName, string code, string job, float relation, float mental, string color, int isAlive, Sprite jobSprite, StandingImg[] standingImg) {
         Character character;
         character.strName = strName;
         character.code = code;
@@ -69,6 +73,7 @@ public class Characters : MonoBehaviour
         if (color==null||color=="") character.color = "#ffffff";
         else character.color = color;
         character.standingImg=standingImg;
+        character.jobSprite = jobSprite;
         return character;
     }
 

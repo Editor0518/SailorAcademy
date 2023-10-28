@@ -80,11 +80,12 @@ public class DialogChoice : MonoBehaviour
         buttonB.interactable = (cB.isLock.Equals(-1)||cB.isLock.Equals(1));
 
         Debug.Log("º±≈√¡ˆ");
-
+        
 
         //choiceWhole.SetActive(true);
         choiceAnim.SetBool("choice", true);
         choiceWholeA.SetBool("choice", true);
+        dialogSystem.canAutoSkip = false;
 
         if (cA.isLock.Equals(-1)) { }//lockA.gameObject.SetActive(false);
         else {

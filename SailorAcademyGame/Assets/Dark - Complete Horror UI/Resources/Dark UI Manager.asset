@@ -19,7 +19,7 @@ MonoBehaviour:
   rootFolder: Dark - Complete Grunge UI/Prefabs/
   backgroundColorTint: {r: 255, g: 255, b: 255, a: 255}
   backgroundType: 0
-  backgroundImage: {fileID: 21300000, guid: 1ddfa95659ff6e343813a952d6e3eaa2, type: 3}
+  backgroundImage: {fileID: 21300000, guid: 5ae175d04f9591f408353acbbe63b215, type: 3}
   backgroundVideo: {fileID: 0}
   backgroundPreserveAspect: 0
   backgroundSpeed: 1
@@ -29,11 +29,11 @@ MonoBehaviour:
   negativeColor: {r: 0.88235295, g: 0.09803922, b: 0.09803922, a: 1}
   backgroundColor: {r: 0.043137256, g: 0.050980393, b: 0.07450981, a: 1}
   backgroundColorAlt: {r: 0, g: 0, b: 0, a: 1}
-  lightFont: {fileID: 11400000, guid: 52cb95421939b3343ade2a7579e71c06, type: 2}
-  mediumFont: {fileID: 11400000, guid: 1303a6dde387e694f8da16b62d2cf437, type: 2}
-  boldFont: {fileID: 11400000, guid: d452d52c272ff8442a3fce75bd39af55, type: 2}
+  lightFont: {fileID: 11400000, guid: 75655676fdb785a48834546041c9849b, type: 2}
+  mediumFont: {fileID: 11400000, guid: 8f21608c925085d47ba53b0d726c8469, type: 2}
+  boldFont: {fileID: 11400000, guid: 1894b15fb4fa5ab419e4a1d7d48a8a11, type: 2}
   altFont: {fileID: 11400000, guid: 8b565b16fc86ee347943107f3b9f2da4, type: 2}
   alt2Font: {fileID: 0}
-  brandLogo: {fileID: 21300000, guid: 454f59f9d97456e42ba9ef9bdbcb85c0, type: 3}
-  gameLogo: {fileID: 21300000, guid: b3fae815942959840b2c432da7f433bd, type: 3}
+  brandLogo: {fileID: 21300000, guid: 1fd451b024da0c4478cd608e97324d76, type: 3}
+  gameLogo: {fileID: 21300000, guid: 3cd4e367b27d85a438cf864999f55996, type: 3}
   logoColor: {r: 255, g: 255, b: 255, a: 255}

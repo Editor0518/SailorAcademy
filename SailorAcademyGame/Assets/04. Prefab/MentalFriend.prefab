@@ -152,7 +152,7 @@ MonoBehaviour:
   updateTiming: 1
   unscaledTime: 0
   _animationName: Down1
-  loop: 1
+  loop: 0
   timeScale: 1
 --- !u!33 &2198517899697727641
 MeshFilter:

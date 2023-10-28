@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class VoiceManager : MonoBehaviour
 {
@@ -28,10 +29,11 @@ public class VoiceManager : MonoBehaviour
     public void PlayVoiceIfExist(string str) {
         audiosource.Stop();
         if (str == null || str == "") return;
-        string path = Path.Combine("Assets/05. Sound/Prologue", str + ".wav");
+        string sceneName = SceneManager.GetActiveScene().name;
+        string path = "Assets/05. Sound/"+ sceneName+"/" + str +".wav";//Path.Combine("Assets/05. Sound/Prologue", str + ".wav");
         AudioClip obj = (AudioClip)AssetDatabase.LoadAssetAtPath(path, typeof(AudioClip));
         if (obj == null) {
-            path = Path.Combine("Assets/05. Sound/Prologue", str + ".mp3");
+            path = "Assets/05. Sound/" + sceneName + "/" + str + ".mp3";//Path.Combine("Assets/05. Sound/Prologue", str + ".mp3");
             obj = (AudioClip)AssetDatabase.LoadAssetAtPath(path, typeof(AudioClip));
 
             if (obj == null) { Debug.Log("파일이 존재하지 않습니다!!" + path); return; }

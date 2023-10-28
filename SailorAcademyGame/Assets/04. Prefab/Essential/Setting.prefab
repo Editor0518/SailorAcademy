@@ -95,124 +95,202 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c04d6489bf3ab2c4bb374a6927f39ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  col: {r: 0.51587343, g: 0.52313924, b: 0.574, a: 1}
+  col: {r: 0.8862745, g: 0.59607846, b: 0.38039216, a: 1}
   chracters:
   - strName: "\uB9C8\uB974\uC2A4"
     code: M
+    job: 
     relation: 20
     mental: 10
     color: '#C69478'
+    isAlive: 0
+    jobSprite: {fileID: 21300000, guid: ba6c953dcb2efad47b2a8081260be9e7, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
       sprite: {fileID: 21300000, guid: d50dcae1ac85e9f4ba53cc21a820ce5c, type: 3}
   - strName: "\uD55C\uAC00\uD76C"
     code: H
+    job: 
     relation: 20
     mental: 10
-    color: '#DE7DAD'
+    color: '#F399A2'
+    isAlive: 0
+    jobSprite: {fileID: 21300000, guid: 90ea51e8829490045bf22bbb3d255edf, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
-      sprite: {fileID: 21300000, guid: 4e53d1da7f509044cae0a2933d70c44d, type: 3}
+      sprite: {fileID: 21300000, guid: 93887097acd739146bc1d801f3bd3b20, type: 3}
   - strName: "\uC624\uBBFC\uD604"
     code: O
+    job: 
     relation: 20
     mental: 10
-    color: '#BF5758'
+    color: '#D2565D'
+    isAlive: 0
+    jobSprite: {fileID: 21300000, guid: eb203eef872707f46aec7564ad66b439, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
       sprite: {fileID: 21300000, guid: c2985d114a05e1f4c8e94bea3828a046, type: 3}
   - strName: "\uB808\uC624"
     code: R
+    job: 
     relation: 20
     mental: 10
-    color: '#5C7DA6'
+    color: '#50488C'
+    isAlive: 0
+    jobSprite: {fileID: 21300000, guid: 59d24d5831b9df549b4d9a15e3215811, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
       sprite: {fileID: 21300000, guid: 1a45545655dac1a49ad45c317cad01b3, type: 3}
   - strName: "\uCD5C\uC2DC\uC628"
     code: C
+    job: 
     relation: 20
     mental: 10
-    color: '#8A4858'
+    color: '#B04449'
+    isAlive: 0
+    jobSprite: {fileID: 21300000, guid: 59d24d5831b9df549b4d9a15e3215811, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
-      sprite: {fileID: 21300000, guid: 6eb5614955582c24bbd0e206e4d4cf15, type: 3}
+      sprite: {fileID: 21300000, guid: 4f3c64b68fec0b1498f5f8eecf11ff58, type: 3}
   - strName: "\uB0A8\uAD81\uBBF8\uB798"
     code: N
+    job: 
     relation: 20
     mental: 10
-    color: '#F1E6CC'
+    color: '#7F888C'
+    isAlive: 0
+    jobSprite: {fileID: 21300000, guid: b30ff8938ffe2044aa2fbe3f6e187af3, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
-      sprite: {fileID: 21300000, guid: e24310fefc8d3394c87e8bd47039ad61, type: 3}
+      sprite: {fileID: 21300000, guid: fb61d08a9b8341d469ab7c382a481a81, type: 3}
   - strName: "\uC774\uC900"
     code: L
+    job: 
     relation: 20
     mental: 10
-    color: '#ECD375'
+    color: '#CBB153'
+    isAlive: 0
+    jobSprite: {fileID: 21300000, guid: f8c44be9bfed08a4e94eda49870de8e7, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
       sprite: {fileID: 21300000, guid: 2524d4d082b4da14db0bd80f64480ece, type: 3}
   - strName: "\uAE40\uB3C4\uD604"
     code: K
+    job: 
     relation: 20
     mental: 10
-    color: '#7FC375'
+    color: '#72CA54'
+    isAlive: 0
+    jobSprite: {fileID: 21300000, guid: 3e614b50fb1430c4d9d52b43c85b539f, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
       sprite: {fileID: 21300000, guid: ffaabd0f2cf20e747a263746569758b9, type: 3}
   - strName: "\uC720\uC7AC\uD76C"
     code: J
+    job: 
     relation: 20
     mental: 10
-    color: '#EAC893'
+    color: '#464646'
+    isAlive: 0
+    jobSprite: {fileID: 21300000, guid: 3e614b50fb1430c4d9d52b43c85b539f, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
       sprite: {fileID: 21300000, guid: c99b88a1ed6c53f4180975f9f45a5f0d, type: 3}
   - strName: "\uCD5C\uAC00\uC628"
     code: G
+    job: 
     relation: 20
     mental: 10
-    color: '#6D8FC4'
+    color: '#628AE3'
+    isAlive: 0
+    jobSprite: {fileID: 21300000, guid: 3999eaea189086346ac790522dbda761, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
       sprite: {fileID: 21300000, guid: 1c82163ec75c9694498c61f61bc45fcc, type: 3}
   - strName: "\uC15C\uB85D"
     code: S
+    job: 
     relation: 20
     mental: 10
-    color: '#E98242'
+    color: '#E29861'
+    isAlive: 0
+    jobSprite: {fileID: 21300000, guid: 3999eaea189086346ac790522dbda761, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
       sprite: {fileID: 21300000, guid: b7793eb8be5c0104997e6f130185cd43, type: 3}
   - strName: "\uCD5C\uD638\uC900"
     code: P
+    job: 
     relation: 20
     mental: 10
     color: '#848693'
+    isAlive: 0
+    jobSprite: {fileID: 0}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
       sprite: {fileID: 21300000, guid: 1197d9ec0ec6d5449adf20b9108ac0ac, type: 3}
-  - strName: "\uC120\uD0DD\uC9C0"
-    code: 
+  - strName: "\uAE40\uC138\uC724"
+    code: Y
+    job: 
     relation: 20
     mental: 10
-    color: '#C69478'
+    color: '#848693'
+    isAlive: 0
+    jobSprite: {fileID: 0}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
-      sprite: {fileID: 21300000, guid: d50dcae1ac85e9f4ba53cc21a820ce5c, type: 3}
+      sprite: {fileID: 21300000, guid: 1197d9ec0ec6d5449adf20b9108ac0ac, type: 3}
+  - strName: "\uC774\uD558\uB098"
+    code: A
+    job: 
+    relation: 20
+    mental: 10
+    color: '#848693'
+    isAlive: 0
+    jobSprite: {fileID: 0}
+    standingImg:
+    - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
+      sprite: {fileID: 21300000, guid: 1197d9ec0ec6d5449adf20b9108ac0ac, type: 3}
+  - strName: "\uBC31\uC2E0\uC6B0"
+    code: B
+    job: 
+    relation: 20
+    mental: 10
+    color: '#848693'
+    isAlive: 0
+    jobSprite: {fileID: 0}
+    standingImg:
+    - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
+      sprite: {fileID: 21300000, guid: 1197d9ec0ec6d5449adf20b9108ac0ac, type: 3}
+  - strName: "\uC724 \uBE44\uC11C"
+    code: V
+    job: 
+    relation: 20
+    mental: 10
+    color: '#848693'
+    isAlive: 0
+    jobSprite: {fileID: 0}
+    standingImg:
+    - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
+      sprite: {fileID: 21300000, guid: 1197d9ec0ec6d5449adf20b9108ac0ac, type: 3}
   extras:
   - strName: "\uD559\uC0DD1"
     code: 
+    job: 
     relation: 0
     mental: 0
     color: 
+    isAlive: 0
+    jobSprite: {fileID: 0}
     standingImg: []
   - strName: "\uD559\uC0DD2"
     code: 
+    job: 
     relation: 0
     mental: 0
     color: 
+    isAlive: 0
+    jobSprite: {fileID: 0}
     standingImg: []
 --- !u!114 &3439767891236984852
 MonoBehaviour:
@@ -233,6 +311,7 @@ MonoBehaviour:
   verText: {fileID: 0}
   sd: {fileID: 3439767891236984854}
   chap: -1
+  isEvent: 0
 --- !u!114 &3439767891236984851
 MonoBehaviour:
   m_ObjectHideFlags: 0
