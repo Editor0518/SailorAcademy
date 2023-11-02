@@ -110,6 +110,7 @@ public class DialogChoice : MonoBehaviour
         dialogSystem.canGoNext = true;
         dialogSystem.MovebranchNext(cA.branch);
         choiceAnim.SetBool("choice", false);
+        //choiceWhole.SetActive(false);
         choiceWholeA.SetBool("choice", false);
         //choiceWhole.SetActive(false);
     }
@@ -119,6 +120,7 @@ public class DialogChoice : MonoBehaviour
         dialogSystem.canGoNext = true;
         dialogSystem.MovebranchNext(cB.branch);
         choiceAnim.SetBool("choice", false);
+        //choiceWhole.SetActive(false);
         choiceWholeA.SetBool("choice", false);
         //choiceWhole.SetActive(false);
     }

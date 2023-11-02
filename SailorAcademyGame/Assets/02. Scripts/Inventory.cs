@@ -117,7 +117,7 @@ public class Inventory : MonoBehaviour
             }
             if (data.items.Count > i) {
                 string path = Path.Combine("Assets/04. Prefab/Items", data.items[i] + ".prefab");
-                GameObject obj = (GameObject)AssetDatabase.LoadAssetAtPath(path, typeof(GameObject));
+                GameObject obj = null;//(GameObject)AssetDatabase.LoadAssetAtPath(path, typeof(GameObject));
                 if (obj == null) { Debug.Log("파일이 존재하지 않습니다!!" + path); return; }
                 Instantiate(obj, content.GetChild(i));
                 Debug.Log("인벤토리에 추가되었습니다.->" +data.items[i] + i);

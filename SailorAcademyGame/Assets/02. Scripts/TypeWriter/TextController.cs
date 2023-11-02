@@ -31,7 +31,7 @@ public class TextController : MonoBehaviour
 
     public bool isFinished = false;
 
-
+    VoiceManager voice;
     public DialogSystem dialog;
 
     void Start()
@@ -39,8 +39,9 @@ public class TextController : MonoBehaviour
         dialog = GameObject.FindGameObjectWithTag("Manager").GetComponent<DialogSystem>();
         txetMana = GameObject.FindGameObjectWithTag("TextManager").GetComponent < TextManager>();
         textInfo = textComponent.textInfo;
+        voice = GameObject.FindGameObjectWithTag("Voice").GetComponent<VoiceManager>();
         //TextChanged("<'' 0.04><~>wave</~> and <!>impact <b>plus</b> <*>shake</!></*> + <%>r o t a t e</%> 일반글씨<big>큰글씨</big><''>");
-        
+
         //StartCoroutine(TextAnimation());
         //StartCoroutine(TextTyping());
     }
@@ -320,7 +321,7 @@ public class TextController : MonoBehaviour
                 {
                     if (vertexIndex + j < newVertexColors.Length) { 
                         if(typingTextCounter> 0)//&& vertexIndex+j<newVertexColors.Length && j<txetMana.typingTransform.color.Length && j < txetMana.baseColor.Length && j < typingProgress.Length)
-                        newVertexColors[vertexIndex + j] = Color32.Lerp(txetMana.typingTransform.color[j], txetMana.baseColor[j], typingProgress[i]); 
+                        if(dialog.isSkip!=2)newVertexColors[vertexIndex + j] = Color32.Lerp(txetMana.typingTransform.color[j], txetMana.baseColor[j], typingProgress[i]); 
                     }
                 }
 
@@ -349,7 +350,7 @@ public class TextController : MonoBehaviour
                     isTyping = false;
                     
                 }
-                if (dialog.isSkip>0 && dialog.canAutoSkip && !isTyping)
+                if (dialog.isSkip==1 && dialog.canAutoSkip && !isTyping&& voice.audiosource.clip==null)
                 {
                         Debug.Log("Next");
                         dialog.ShowDialog();

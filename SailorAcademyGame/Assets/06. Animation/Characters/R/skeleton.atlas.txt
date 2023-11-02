@@ -1,0 +1,131 @@
+skeleton.png
+size:2033,1746
+filter:Linear,Linear
+pma:true
+눈 분노
+bounds:300,10,265,84
+offsets:0,1,268,87
+눈 퉁명
+bounds:1250,554,246,77
+offsets:1,1,247,79
+눈동자 오
+bounds:2,7,46,30
+offsets:0,2,46,32
+눈동자 오 퉁명
+bounds:567,66,45,28
+offsets:0,2,46,30
+눈동자 왼
+bounds:810,633,46,31
+offsets:0,2,46,34
+눈동자 왼 퉁명
+bounds:1390,2,44,27
+offsets:2,1,46,28
+눈동자오
+bounds:767,363,46,37
+offsets:1,1,47,38
+rotate:90
+눈동자왼
+bounds:1207,269,47,34
+offsets:0,1,47,35
+rotate:90
+더드미
+bounds:1207,2,134,181
+offsets:3,3,140,187
+rotate:90
+더듬2
+bounds:1505,907,69,132
+offsets:2,3,77,135
+뒷머리
+bounds:810,666,43,68
+offsets:3,0,46,68
+뒷소매오
+bounds:1207,138,96,320
+offsets:0,0,100,320
+rotate:90
+뒷소매왼
+bounds:1505,1041,127,703
+offsets:5,2,139,710
+땀
+bounds:1858,89,10,20
+offsets:4,3,16,26
+바탕
+bounds:327,411,481,323
+offsets:4,3,488,326
+상
+bounds:2,736,943,1008
+offsets:1,1,948,1014
+안광오
+bounds:1945,765,8,7
+offsets:2,2,10,10
+안광왼
+bounds:1949,1736,9,8
+offsets:1,2,11,11
+얼굴 눈감 디폴트
+bounds:1634,1306,313,438
+offsets:0,3,316,442
+얼굴 눈감 분노
+bounds:327,96,313,438
+offsets:0,3,316,442
+rotate:90
+얼굴 눈감 웃음
+bounds:1634,866,313,438
+offsets:0,3,316,442
+얼굴 눈감 퉁명
+bounds:1505,551,313,438
+offsets:0,3,316,442
+rotate:90
+얼굴 디폴트
+bounds:810,318,313,438
+offsets:0,3,316,442
+rotate:90
+얼굴 분노
+bounds:767,3,313,438
+offsets:0,3,316,442
+rotate:90
+얼굴 웃음
+bounds:1250,236,313,438
+offsets:0,3,316,442
+rotate:90
+얼굴 퉁명
+bounds:1690,111,313,438
+offsets:0,3,316,442
+옆머2
+bounds:1648,22,87,208
+offsets:4,4,92,215
+rotate:90
+옆머리
+bounds:2,39,183,296
+offsets:2,0,187,298
+rotate:90
+으
+bounds:1945,774,86,90
+offsets:15,7,106,99
+입
+bounds:300,194,28,7
+offsets:1,1,29,9
+rotate:90
+입 분노
+bounds:1505,866,72,39
+offsets:2,2,75,43
+입 살짝벌
+bounds:899,648,46,38
+offsets:3,3,50,41
+입 웃음
+bounds:855,666,68,42
+offsets:2,3,70,46
+rotate:90
+입 퉁명
+bounds:899,688,46,46
+offsets:1,2,47,48
+짜증
+bounds:1529,206,28,28
+offsets:6,5,37,38
+코 속눈썹라인 쌍커풀
+bounds:1390,31,256,105
+offsets:0,4,256,111
+팔
+bounds:2,224,323,510
+offsets:2,1,328,513
+하
+bounds:947,633,556,1111
+offsets:105,0,731,1119

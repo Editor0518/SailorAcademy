@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ChapterEndPanel : MonoBehaviour
 {
@@ -22,15 +23,47 @@ public class ChapterEndPanel : MonoBehaviour
     public SceneLoadManager scene;
     public int nextChapter = 1;
 
+    [Header("0:-, 1:0, 2:+")]
+    public Sprite[] sprFriend;
+    public Sprite[] sprMental;
+
+    [System.Serializable]
+    public struct CharBlock {
+        public string code;
+        public Image friend;
+        public TMP_Text friendTxt;
+        public Image mental;
+        public TMP_Text mentalTxt;
+
+        public CharBlock(string code, Image friend, TMP_Text friendTxt, Image mental, TMP_Text mentalTxt) {
+            this.code = code;
+            this.friend = friend;
+            this.friendTxt = friendTxt;
+            this.mental = mental;
+            this.mentalTxt = mentalTxt;
+        }
+    }
+
+    Characters ch;
+    public List<ChapCharSetting> chars;
+
+
     string[] scenes = { "프롤로그", "챕터 1", "챕터 2" };
 
     void Start()
     {
         audiosource = GetComponent<AudioSource>();
         ShowRecords();
-        headerTxt.text = scenes[int.Parse(PlayerPrefs.GetString("DftSave", (nextChapter-1).ToString()))] + " 종료";
+        headerTxt.text = scenes[int.Parse(PlayerPrefs.GetString("DftSave", (nextChapter - 1).ToString()))] + " 종료";
         headerTxt2.text = headerTxt.text;
-        if (scene != null)scene.UpdateDefaultSave(nextChapter);
+        if (scene != null) scene.UpdateDefaultSave(nextChapter);
+    }
+
+    private void OnEnable()
+    {
+        ch = GameObject.FindGameObjectWithTag("SheetData").GetComponent<Characters>();
+        CharacterFMSet();
+        //ch.CharacterReset();
     }
 
     public RectTransform RecContent;//행적 Content
@@ -39,8 +72,43 @@ public class ChapterEndPanel : MonoBehaviour
     public void ShowRecords() {
         //PlayerPrefs.SetString("OneRecord", "1;2;3;4;5;6");
         StartCoroutine(AddRecord());
-        
+
     }
+
+    public void CharacterFMSet() {
+        for (int i = 0; i < 11; i++) {
+            string[] strs = PlayerPrefs.GetString("tempsave" + chars[i].info.code, "0,0").Split(",");
+
+            SetImgFM(i, int.Parse(strs[0]), int.Parse(strs[1]));
+
+        }
+    }
+
+    public void SetImgFM(int index, int friendNum, int mentalNum){
+        if (friendNum < 0) {
+            chars[index].info.friend.sprite = sprFriend[0];
+        }
+        else if (friendNum == 0) {
+            chars[index].info.friend.sprite = sprFriend[1];
+        }
+        else {
+            chars[index].info.friend.sprite = sprFriend[2];
+        }
+
+        if (mentalNum < 0) {
+            chars[index].info.mental.sprite = sprMental[0];
+        }
+        else if (mentalNum == 0) {
+            chars[index].info.mental.sprite = sprMental[1];
+        }
+        else {
+            chars[index].info.mental.sprite = sprMental[2];
+        }
+        chars[index].info.friendTxt.text = friendNum > 0 ? "+" + friendNum : friendNum.ToString();
+        chars[index].info.mentalTxt.text = mentalNum > 0 ? "+" + mentalNum : mentalNum.ToString();
+
+    }
+    
 
     IEnumerator AddRecord() {
         WaitForSeconds wait = new(1);

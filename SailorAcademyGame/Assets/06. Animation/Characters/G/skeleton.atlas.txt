@@ -1,0 +1,139 @@
+skeleton.png
+size:1857,1603
+filter:Linear,Linear
+pma:true
+가방
+bounds:1638,534,160,518
+offsets:2,4,164,522
+눈 디폴트
+bounds:1780,1303,298,66
+offsets:2,1,300,70
+rotate:90
+눈 울음
+bounds:2,6,298,53
+offsets:2,2,300,55
+눈동자 오 기대
+bounds:1719,105,56,50
+offsets:0,2,56,52
+눈동자 오 디폴트
+bounds:357,2,57,52
+offsets:1,2,59,54
+rotate:90
+눈동자 오 울음
+bounds:1502,364,63,41
+offsets:1,1,65,43
+눈동자 왼 기대
+bounds:411,8,56,51
+offsets:0,2,56,53
+눈동자 왼 디폴트
+bounds:302,2,57,53
+offsets:1,1,59,54
+rotate:90
+눈동자 왼 울음
+bounds:1501,19,64,40
+offsets:0,2,64,42
+눈물 오1
+bounds:1026,853,23,12
+offsets:1,2,26,15
+눈물 오2
+bounds:1567,364,41,52
+offsets:0,4,41,56
+rotate:90
+눈물 오3
+bounds:1814,1277,13,24
+offsets:3,3,17,27
+눈물 왼1
+bounds:469,47,17,12
+offsets:1,2,18,14
+눈물 왼2
+bounds:1848,1592,7,9
+offsets:2,2,10,11
+눈물 왼3
+bounds:1780,1125,47,23
+offsets:1,2,48,26
+rotate:90
+눈물 왼4
+bounds:595,381,11,24
+offsets:2,2,13,26
+눈물 왼5
+bounds:953,798,16,21
+offsets:2,2,19,25
+눈물 턱1
+bounds:551,375,42,30
+offsets:0,3,42,33
+눈물 턱2
+bounds:1024,2,16,15
+offsets:2,2,18,17
+눈물 턱3
+bounds:953,356,6,6
+offsets:2,1,8,7
+눈썹 오 디폴트
+bounds:953,867,131,33
+offsets:0,2,131,35
+눈썹 왼 디폴트
+bounds:1780,1174,127,32
+offsets:1,4,128,36
+rotate:90
+뒷머리
+bounds:1501,61,301,216
+offsets:0,2,302,220
+rotate:90
+땀
+bounds:551,353,10,20
+offsets:4,3,16,26
+모자
+bounds:551,18,471,333
+offsets:0,3,472,338
+상체
+bounds:2,407,604,1194
+offsets:2,4,609,1202
+앞머리+왼쪽
+bounds:1024,19,475,343
+offsets:2,0,480,345
+얼굴 감은눈 기대
+bounds:1435,1054,343,547
+offsets:2,3,345,553
+얼굴 감은눈 디폴트
+bounds:608,353,343,547
+offsets:2,3,345,553
+얼굴 감은눈 울기
+bounds:2,61,344,547
+offsets:1,3,345,553
+rotate:90
+얼굴 기대
+bounds:1089,709,343,547
+offsets:2,3,345,553
+rotate:90
+얼굴 디폴트
+bounds:953,364,343,547
+offsets:2,3,345,553
+rotate:90
+얼굴 울기
+bounds:1089,1054,344,547
+offsets:1,3,345,553
+오른쪽머리카락
+bounds:1502,407,127,300
+offsets:4,0,137,302
+왼쪽머리카락
+bounds:1719,251,122,281
+offsets:4,1,128,284
+입 기대
+bounds:1719,204,89,45
+offsets:2,2,92,48
+입 디폴트
+bounds:1631,663,44,5
+offsets:1,3,46,11
+rotate:90
+입 살짝벌린
+bounds:953,821,71,44
+offsets:2,2,73,46
+입 울음
+bounds:1810,160,89,45
+offsets:3,2,92,48
+rotate:90
+입 웃음
+bounds:1719,157,89,45
+offsets:1,2,90,48
+하체
+bounds:608,902,479,699
+offsets:7,0,496,700

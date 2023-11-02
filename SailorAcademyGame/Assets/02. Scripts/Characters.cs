@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Spine.Unity;
 
 public class Characters : MonoBehaviour
 {
@@ -26,7 +27,12 @@ public class Characters : MonoBehaviour
         public Sprite jobSprite;
         public StandingImg[] standingImg;
 
-        public Character(string strName, string code, string job, float relation, float mental, string color, int isAlive, Sprite jobSprite, StandingImg[] standingImg){
+        public SkeletonDataAsset asset;
+        public AnimationReferenceAsset[] faces;
+        public Vector3 posScale;
+
+        public Character(string strName, string code, string job, float relation, float mental, string color, int isAlive, Sprite jobSprite, StandingImg[] standingImg, SkeletonDataAsset asset, AnimationReferenceAsset[] faces, Vector3 posScale)
+        {
             this.strName = strName;
             this.code = code;
             this.job = job;
@@ -36,6 +42,9 @@ public class Characters : MonoBehaviour
             this.isAlive = isAlive;
             this.jobSprite = jobSprite;
             this.standingImg = standingImg;
+            this.asset = asset;
+            this.faces = faces;
+            this.posScale = posScale;
         }
 
     }
@@ -60,7 +69,7 @@ public class Characters : MonoBehaviour
         return info;//이름,직업,관계도,멘탈,생사여부 순서로 리턴
     }
 
-    Character CreateCharacterType(string strName, string code, string job, float relation, float mental, string color, int isAlive, Sprite jobSprite, StandingImg[] standingImg) {
+    Character CreateCharacterType(string strName, string code, string job, float relation, float mental, string color, int isAlive, Sprite jobSprite, StandingImg[] standingImg, SkeletonDataAsset asset, AnimationReferenceAsset[] faces, Vector3 posScale) {
         Character character;
         character.strName = strName;
         character.code = code;
@@ -74,12 +83,35 @@ public class Characters : MonoBehaviour
         else character.color = color;
         character.standingImg=standingImg;
         character.jobSprite = jobSprite;
+        character.asset = asset;
+        character.faces = faces;
+        character.posScale = posScale;
         return character;
     }
 
+    public void CharacterSaveFM(string code, int friendAdd, int mentalAdd){
+        for (int i = 0; i < chracters.Count; i++) {
+            if (chracters[i].code.Equals(code))
+            {
+                string[] strs = PlayerPrefs.GetString("tempsave" + code, "0,0").Split(",");
+                Debug.Log(strs[0] + " " + strs[1]);
+                strs[0] = (int.Parse(strs[0])+friendAdd).ToString();
+                strs[1] = (int.Parse(strs[1]) + mentalAdd).ToString();
+                string save = strs[0] + "," + strs[1];
+
+                PlayerPrefs.SetString("tempsave" + code, save);
 
 
+            }
+        }
+    }
 
+    public void CharacterReset() {
+        for (int i = 0; i < 11; i++) {
+            
+            PlayerPrefs.SetString("tempsave" + chracters[i].code, "0,0");
+        }
+    }
 
 
 

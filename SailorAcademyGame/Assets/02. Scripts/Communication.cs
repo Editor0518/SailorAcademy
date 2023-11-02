@@ -38,7 +38,7 @@ public class Communication : MonoBehaviour
     public void AddOneChat(string str) {
         chats.Add(str);
         chars[crtCharIndex].childOfChat.Add(str);
-        SaveChat();
+        ClearChat();
 
         ReloadChat();
     }
@@ -116,8 +116,8 @@ public class Communication : MonoBehaviour
         standing.sprite = chars[crtCharIndex].character.standing.sprite;
         nametxt.text = chars[crtCharIndex].character.nameTxt.text;
         jobtxt.text = chars[crtCharIndex].character.jobTxt.text;
-        mental.fillAmount = chars[crtCharIndex].character.mental/10;
-        relation.fillAmount = chars[crtCharIndex].character.relation/20;
+        mental.fillAmount = chars[crtCharIndex].character.mental/10.0f;
+        relation.fillAmount = chars[crtCharIndex].character.relation/20.0f;
         //color = chars[crtCharIndex].character.color;
 
         ask1.interactable = chars[crtCharIndex].canAsk1;

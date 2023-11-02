@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SheetData : MonoBehaviour
 {
-    
     public List<Data> sheetData;
 
     [System.Serializable]

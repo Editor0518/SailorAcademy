@@ -16,7 +16,7 @@ namespace Michsky.UI.Dark
         // Background
         public Color backgroundColorTint = new Color(255, 255, 255, 255);
         public BackgroundType backgroundType;
-        public Sprite backgroundImage;
+        public Texture backgroundImage;
         public VideoClip backgroundVideo;
         public bool backgroundPreserveAspect;
         [Range(0.1f, 5)] public float backgroundSpeed = 1;

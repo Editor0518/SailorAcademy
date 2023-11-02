@@ -11,6 +11,7 @@ TagManager:
   - DontDestroy
   - Voice
   - TextManager
+  - Music
   layers:
   - Default
   - TransparentFX

@@ -19,7 +19,7 @@ MonoBehaviour:
   rootFolder: Dark - Complete Grunge UI/Prefabs/
   backgroundColorTint: {r: 255, g: 255, b: 255, a: 255}
   backgroundType: 0
-  backgroundImage: {fileID: 21300000, guid: 5ae175d04f9591f408353acbbe63b215, type: 3}
+  backgroundImage: {fileID: 8400000, guid: 4707f0379ce966b4fb842c9ba4c31b6b, type: 2}
   backgroundVideo: {fileID: 0}
   backgroundPreserveAspect: 0
   backgroundSpeed: 1

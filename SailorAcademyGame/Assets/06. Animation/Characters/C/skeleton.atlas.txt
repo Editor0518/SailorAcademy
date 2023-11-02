@@ -1,0 +1,124 @@
+skeleton.png
+size:1945,1468
+filter:Linear,Linear
+pma:true
+눈 가온웃음
+bounds:1868,968,268,68
+offsets:2,0,274,68
+rotate:90
+눈 기본웃음
+bounds:1128,54,266,68
+offsets:1,0,267,70
+눈 디폴트
+bounds:1795,970,266,71
+offsets:2,2,268,74
+rotate:90
+눈 분노
+bounds:2,2,267,59
+offsets:2,5,269,65
+눈동자 오 가온웃음
+bounds:1559,357,54,36
+offsets:2,2,56,38
+rotate:90
+눈동자 오 디폴트
+bounds:1795,713,53,38
+offsets:0,1,53,40
+눈동자 왼 가온웃음
+bounds:1887,752,53,38
+offsets:0,1,54,39
+rotate:90
+눈동자 왼 디폴트
+bounds:1132,416,53,39
+offsets:0,2,53,41
+뒷머리
+bounds:1514,325,43,86
+offsets:0,0,46,86
+뒷목
+bounds:1795,1238,148,228
+offsets:2,2,153,231
+뒷옷
+bounds:1795,807,120,159
+offsets:2,3,124,164
+땀
+bounds:1492,112,10,20
+offsets:4,3,16,26
+rotate:90
+머리가운데
+bounds:682,79,186,231
+offsets:2,3,191,234
+rotate:90
+머리오른쪽
+bounds:481,74,199,248
+offsets:0,0,201,248
+머리왼쪽
+bounds:915,83,182,211
+offsets:2,1,184,212
+rotate:90
+머리통
+bounds:2,63,477,259
+offsets:0,3,479,263
+상체
+bounds:2,324,746,1142
+offsets:1,5,752,1150
+얼굴 가온웃음
+bounds:1506,1086,287,380
+offsets:0,2,287,382
+얼굴 감은눈 가온웃음
+bounds:1506,704,287,380
+offsets:0,2,287,382
+얼굴 감은눈 디폴트
+bounds:750,267,287,380
+offsets:0,2,287,382
+rotate:90
+얼굴 감은눈 분노
+bounds:1216,413,287,380
+offsets:0,2,287,382
+rotate:90
+얼굴 감은눈 퉁명
+bounds:1216,1085,288,381
+offsets:1,2,290,383
+얼굴 기본웃음
+bounds:1598,322,287,380
+offsets:0,2,287,382
+얼굴 디폴트
+bounds:1132,124,287,380
+offsets:0,2,287,382
+rotate:90
+얼굴 분노
+bounds:1514,33,287,380
+offsets:0,2,287,382
+rotate:90
+얼굴 퉁명
+bounds:1216,702,288,381
+offsets:1,2,290,383
+입 가온웃음
+bounds:1396,69,94,53
+offsets:2,2,97,55
+입 기본웃음
+bounds:271,8,94,53
+offsets:3,2,97,56
+입 디폴트
+bounds:481,63,49,9
+offsets:2,2,52,13
+입 분노
+bounds:1795,753,90,52
+offsets:1,2,92,54
+입 분노2
+bounds:1132,457,97,59
+offsets:2,2,99,62
+rotate:90
+입 살짝벌린
+bounds:682,281,61,41
+offsets:2,2,63,44
+입 퉁명
+bounds:367,23,74,38
+offsets:2,2,76,40
+하이라이트 오
+bounds:1193,546,8,8
+offsets:2,2,12,11
+하이라이트 왼
+bounds:1396,59,8,8
+offsets:2,1,11,9
+하체
+bounds:750,556,464,910
+offsets:129,0,703,914

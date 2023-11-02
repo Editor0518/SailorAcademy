@@ -1,0 +1,156 @@
+skeleton.png
+size:2011,1899
+filter:Linear,Linear
+pma:true
+감은눈 디폴트
+bounds:300,1703,321,133
+offsets:8,11,332,148
+감은눈 분노
+bounds:623,1701,321,133
+offsets:3,11,327,148
+감은눈 조심스럽
+bounds:1238,1671,286,137
+offsets:3,11,291,148
+눈 디폴트
+bounds:1344,1810,313,87
+offsets:1,1,316,91
+눈 분노
+bounds:1659,1810,313,87
+offsets:2,0,318,90
+눈 웃음
+bounds:1063,1812,279,85
+offsets:2,0,281,85
+눈 조심스럽
+bounds:2,1752,296,87
+offsets:3,2,301,92
+눈동자 오 디폴트
+bounds:832,1836,62,61
+offsets:1,3,63,64
+눈동자 오 분노
+bounds:418,1839,62,58
+offsets:2,3,66,62
+눈동자 오 웃음
+bounds:227,1847,62,50
+offsets:0,4,62,54
+눈동자 오 조심스럽
+bounds:291,1841,62,56
+offsets:2,2,65,59
+눈동자 왼 디폴트
+bounds:896,1836,61,62
+offsets:1,3,62,65
+rotate:90
+눈동자 왼 분노
+bounds:590,1838,61,59
+offsets:2,3,63,63
+눈동자 왼 웃음
+bounds:164,1850,61,47
+offsets:2,1,63,48
+눈동자 왼 조심스럽
+bounds:355,1841,61,56
+offsets:1,2,62,59
+다리
+bounds:1159,2,543,850
+offsets:8,0,557,855
+rotate:90
+더듬이
+bounds:2,202,544,460
+offsets:4,1,555,466
+뒷머
+bounds:548,5,540,609
+offsets:19,4,571,623
+rotate:90
+뒷머 오 팣
+bounds:2,664,330,891
+offsets:4,8,344,899
+rotate:90
+땀
+bounds:2,1887,10,20
+offsets:4,3,16,26
+rotate:90
+목
+bounds:2,1602,148,249
+offsets:3,3,158,256
+rotate:90
+앞머리
+bounds:946,1676,134,290
+offsets:3,4,139,300
+rotate:90
+앞머리 오
+bounds:1526,1661,147,297
+offsets:7,2,161,302
+rotate:90
+앞머리 왼
+bounds:253,1549,152,260
+offsets:5,4,161,270
+rotate:90
+얼굴 디폴트
+bounds:1447,1292,367,444
+offsets:2,7,375,458
+rotate:90
+얼굴 분노
+bounds:904,1150,367,444
+offsets:2,5,374,451
+rotate:90
+얼굴 웃음
+bounds:1350,923,367,444
+offsets:2,5,374,451
+rotate:90
+얼굴 조심스럽
+bounds:902,781,367,444
+offsets:2,5,374,451
+rotate:90
+옆머리 오
+bounds:895,547,232,916
+offsets:4,11,245,932
+rotate:90
+옆머리 왼
+bounds:2,996,314,898
+offsets:1,9,320,912
+rotate:90
+입 디폴트
+bounds:24,1884,98,13
+offsets:4,9,104,31
+입 분노
+bounds:653,1838,89,59
+offsets:9,11,106,72
+입 살짝벌
+bounds:482,1839,106,58
+offsets:3,3,111,62
+입 웃음
+bounds:744,1838,86,59
+offsets:4,3,91,63
+입 조심스럽
+bounds:960,1830,101,67
+offsets:3,5,107,74
+팔 오
+bounds:2,1312,205,900
+offsets:4,9,215,913
+rotate:90
+팔 왼
+bounds:515,1519,150,930
+offsets:9,5,168,939
+rotate:90
+하이라이트 오
+bounds:124,1883,14,18
+offsets:2,3,19,22
+rotate:90
+하이라이트 왼
+bounds:144,1883,14,18
+offsets:3,2,18,20
+rotate:90
+
+skeleton_2.png
+size:1951,1282
+filter:Linear,Linear
+pma:true
+뒷머 오
+bounds:2,2,571,1306
+offsets:11,14,601,1336
+rotate:90
+뒷머 왼
+bounds:2,575,705,1320
+offsets:6,9,730,1340
+rotate:90
+몸
+bounds:1324,319,625,961
+offsets:3,5,631,974

@@ -1,0 +1,145 @@
+skeleton.png
+size:1986,1596
+filter:Linear,Linear
+pma:true
+고정자켓뒤쪽
+bounds:1116,1394,150,237
+offsets:0,7,158,251
+rotate:90
+눈 당황
+bounds:1695,1532,289,62
+offsets:3,0,293,64
+눈 디폴트
+bounds:289,1484,294,72
+눈 웃음
+bounds:2,1503,285,69
+offsets:2,0,287,70
+눈동자 오 당황
+bounds:614,1558,63,36
+offsets:2,3,65,40
+눈동자 오 당황 안광x
+bounds:549,1558,63,36
+offsets:2,3,65,40
+눈동자 오 디폴트
+bounds:1115,1553,64,41
+offsets:3,2,67,44
+눈동자 오 디폴트 안광x
+bounds:1049,1553,64,41
+offsets:3,2,67,44
+눈동자 오 웃음
+bounds:679,1558,63,36
+offsets:2,2,65,39
+눈동자 왼 당황
+bounds:805,1557,59,37
+offsets:2,1,62,38
+눈동자 왼 당황 안광x
+bounds:744,1557,59,37
+offsets:2,1,62,38
+눈동자 왼 디폴트
+bounds:988,1554,59,40
+offsets:2,1,62,41
+눈동자 왼 디폴트 안광x
+bounds:927,1554,59,40
+offsets:2,1,62,41
+눈동자 왼 웃음
+bounds:866,1557,59,37
+offsets:2,2,61,39
+눈썹 오
+bounds:231,1574,110,20
+offsets:0,5,111,28
+눈썹 오 웃음
+bounds:434,1567,113,27
+offsets:0,3,115,30
+눈썹 왼
+bounds:85,1583,100,11
+offsets:1,3,102,18
+눈썹 왼 웃음
+bounds:343,1572,89,22
+offsets:2,2,91,29
+더듬이
+bounds:585,1478,262,77
+offsets:0,2,266,83
+뒷머리
+bounds:1553,1539,55,140
+offsets:0,1,57,141
+rotate:90
+뒷자켓
+bounds:2,1162,314,802
+offsets:5,6,326,813
+rotate:90
+땀
+bounds:63,1584,10,20
+offsets:4,3,16,26
+rotate:90
+머리카락
+bounds:806,1022,527,370
+offsets:0,0,529,372
+목
+bounds:1355,1292,238,362
+offsets:5,1,250,366
+rotate:90
+안경
+bounds:849,1409,265,142
+offsets:1,1,269,144
+안경테
+bounds:1263,1549,69,45
+offsets:1,3,71,51
+얼굴 눈감 당황
+bounds:1335,918,372,477
+offsets:3,5,379,486
+rotate:90
+얼굴 눈감 디폴트
+bounds:2,788,372,477
+offsets:3,5,379,486
+rotate:90
+얼굴 눈감 웃음
+bounds:481,648,372,477
+offsets:3,5,379,486
+rotate:90
+얼굴 당황
+bounds:960,544,372,477
+offsets:3,5,379,486
+rotate:90
+얼굴 디폴트
+bounds:1439,544,372,477
+offsets:3,5,379,486
+rotate:90
+얼굴 웃음
+bounds:2,414,372,477
+offsets:3,5,379,486
+rotate:90
+얼굴코
+bounds:1334,1546,69,48
+입 당황
+bounds:1405,1542,72,52
+offsets:2,2,75,54
+입 당황수정
+bounds:1479,1542,72,52
+offsets:2,2,75,54
+입 디폴트 닫
+bounds:2,1589,39,5
+offsets:4,3,44,10
+입 디폴트 벌
+bounds:187,1579,42,15
+offsets:2,1,45,16
+입 웃음
+bounds:1181,1552,80,42
+offsets:2,2,83,44
+하이라이트 오
+bounds:43,1588,8,6
+offsets:2,2,10,8
+하이라이트 왼
+bounds:53,1588,8,6
+offsets:2,4,11,10
+하체
+bounds:481,2,540,1031
+offsets:9,0,559,1039
+rotate:90
+
+skeleton_2.png
+size:1195,1765
+filter:Linear,Linear
+pma:true
+상체
+bounds:2,2,1191,1761
+offsets:3,4,1199,1772

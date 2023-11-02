@@ -1,0 +1,99 @@
+skeleton.png
+size:2007,1951
+filter:Linear,Linear
+pma:true
+눈 놀란
+bounds:1862,1237,240,80
+offsets:2,2,242,82
+rotate:90
+눈 디폴트
+bounds:1862,1479,241,80
+offsets:3,1,245,81
+rotate:90
+눈 화난
+bounds:1862,1007,228,83
+offsets:1,3,230,88
+rotate:90
+눈동자 오 놀란
+bounds:1944,1610,30,27
+offsets:1,0,32,28
+눈동자 오 디폴트
+bounds:1862,985,39,20
+offsets:1,2,40,23
+눈동자 오 분노
+bounds:51,14,18,18
+offsets:2,2,20,21
+눈동자 왼 놀란
+bounds:872,747,33,25
+offsets:1,1,34,26
+눈동자 왼 디폴트
+bounds:2,13,47,19
+offsets:0,1,47,20
+눈동자 왼 분노
+bounds:1948,183,18,20
+offsets:1,1,19,21
+뒷머리
+bounds:1709,620,359,182
+offsets:3,5,365,189
+rotate:90
+머리 오
+bounds:768,774,207,196
+offsets:3,5,213,201
+머리 왼
+bounds:1709,347,271,227
+offsets:7,1,280,231
+rotate:90
+목
+bounds:1709,148,178,197
+offsets:4,6,185,205
+상체
+bounds:2,702,764,1247
+offsets:4,5,776,1259
+손
+bounds:1862,1722,227,143
+offsets:0,5,227,150
+rotate:90
+얼굴 감눈 놀란
+bounds:1504,1466,356,483
+offsets:0,1,356,488
+얼굴 감눈 디폴트
+bounds:1504,981,356,483
+offsets:0,1,356,488
+얼굴 놀란
+bounds:993,487,356,483
+offsets:0,1,356,488
+얼굴 눈감 화난
+bounds:993,2,356,483
+offsets:0,1,356,488
+얼굴 디폴트
+bounds:1351,487,356,483
+offsets:0,1,356,488
+얼굴 화난
+bounds:1351,2,356,483
+offsets:0,1,356,488
+입 놀란
+bounds:1944,1639,81,56
+offsets:2,1,84,57
+rotate:90
+입 디폴트
+bounds:977,923,47,14
+offsets:2,3,52,19
+rotate:90
+입 살짝벌
+bounds:1889,163,57,40
+offsets:2,1,60,42
+입 화난
+bounds:768,716,102,56
+offsets:3,3,106,60
+잔머2
+bounds:1709,17,179,129
+offsets:3,4,182,135
+잔머리
+bounds:1889,205,112,140
+offsets:0,1,114,143
+팔
+bounds:2,34,989,666
+offsets:1,5,995,671
+하체
+bounds:768,972,734,977
+offsets:200,0,1045,987

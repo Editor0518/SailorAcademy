@@ -1,0 +1,119 @@
+skeleton.png
+size:1995,1488
+filter:Linear,Linear
+pma:true
+눈 다정
+bounds:1421,1349,278,137
+offsets:2,3,280,142
+눈 디폴트
+bounds:1701,1348,271,138
+offsets:1,5,272,146
+눈 웃음
+bounds:2,1302,275,143
+offsets:3,3,279,147
+눈동자 오 다정
+bounds:394,1441,61,45
+offsets:1,2,62,47
+눈동자 오 디폴트
+bounds:521,1439,61,47
+offsets:2,3,63,51
+눈동자 오 웃음
+bounds:457,1440,62,46
+offsets:2,2,64,49
+눈동자 왼 다정
+bounds:265,1447,62,39
+offsets:2,1,64,40
+눈동자 왼 디폴트
+bounds:329,1442,63,44
+offsets:1,1,64,45
+눈동자 왼 웃음
+bounds:201,1448,62,38
+offsets:1,1,64,39
+눈썹 오 디폴트
+bounds:660,1428,132,58
+offsets:0,2,132,63
+눈썹 왼 디폴트
+bounds:105,1451,94,35
+offsets:1,1,95,38
+더듬이
+bounds:1111,1362,124,308
+offsets:0,2,129,313
+rotate:90
+뒷머리
+bounds:279,1123,303,479
+offsets:3,1,314,487
+rotate:90
+땀
+bounds:20,1476,10,20
+offsets:4,3,16,26
+rotate:90
+머리
+bounds:1060,2,532,430
+offsets:3,5,539,436
+rotate:90
+목
+bounds:760,1034,326,441
+offsets:11,9,349,468
+rotate:90
+얼굴 감은눈
+bounds:531,628,404,527
+offsets:4,5,411,535
+rotate:90
+얼굴 감은눈 다정
+bounds:1203,942,404,527
+offsets:4,5,411,535
+rotate:90
+얼굴 감은눈 웃음
+bounds:2,717,404,527
+offsets:4,5,411,535
+rotate:90
+얼굴 다정
+bounds:1060,536,404,527
+offsets:4,5,411,535
+rotate:90
+얼굴 디폴트
+bounds:1589,413,404,527
+offsets:4,5,411,535
+얼굴 웃음
+bounds:2,311,404,527
+offsets:4,5,411,535
+rotate:90
+얼굴 장난
+bounds:531,222,404,527
+offsets:4,5,411,535
+rotate:90
+입 다정
+bounds:794,1423,114,63
+offsets:2,1,117,65
+입 디폴트
+bounds:910,1418,97,68
+offsets:2,2,100,70
+입 살짝벌
+bounds:584,1437,74,49
+offsets:2,2,77,52
+입 웃음
+bounds:1009,1410,100,76
+offsets:3,2,104,79
+코입
+bounds:42,1458,61,28
+offsets:3,4,65,34
+하이라이트 오
+bounds:10,1479,7,8
+offsets:2,1,10,10
+rotate:90
+하이라이트 왼
+bounds:2,1480,6,6
+offsets:2,2,8,8
+
+skeleton_2.png
+size:1734,1573
+filter:Linear,Linear
+pma:true
+상체
+bounds:2,646,925,1730
+offsets:10,3,939,1743
+rotate:90
+하체
+bounds:2,2,642,1403
+offsets:11,0,666,1412
+rotate:90

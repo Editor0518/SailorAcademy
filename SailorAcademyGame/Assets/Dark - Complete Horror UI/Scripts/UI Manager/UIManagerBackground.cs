@@ -9,7 +9,7 @@ namespace Michsky.UI.Dark
     {
         [Header("Resources")]
         public UIManager UIManagerAsset;
-        public Image backgroundObject;
+        public RawImage backgroundObject;
 
         public enum BackgroundType
         {
@@ -36,7 +36,7 @@ namespace Michsky.UI.Dark
             }
 
             if (backgroundObject == null)
-                backgroundObject = gameObject.GetComponent<Image>();
+                backgroundObject = gameObject.GetComponent<RawImage>();
         }
 
         void LateUpdate()
@@ -51,7 +51,7 @@ namespace Michsky.UI.Dark
         public void UpdateBackground()
         {
             backgroundObject.enabled = true;
-            backgroundObject.sprite = UIManagerAsset.backgroundImage;
+            backgroundObject.texture = UIManagerAsset.backgroundImage;
             backgroundObject.color = UIManagerAsset.backgroundColorTint;
         }
     }

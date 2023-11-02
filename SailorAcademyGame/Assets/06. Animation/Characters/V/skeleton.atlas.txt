@@ -1,0 +1,13 @@
+skeleton.png
+size:891,1110
+filter:Linear,Linear
+pma:true
+Y_bottom
+bounds:2,2,371,1106
+offsets:5,4,382,1114
+Y_head
+bounds:375,190,223,281
+offsets:5,6,231,289
+Y_top
+bounds:375,473,514,635
+offsets:5,5,524,643

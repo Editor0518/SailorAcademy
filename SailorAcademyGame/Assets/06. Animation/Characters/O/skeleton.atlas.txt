@@ -1,0 +1,147 @@
+skeleton.png
+size:1840,1793
+filter:Linear,Linear
+pma:true
+눈 감음 디폴트
+bounds:1490,669,243,87
+offsets:3,5,248,92
+눈 디폴트
+bounds:1560,1491,251,62
+offsets:1,6,253,73
+눈 분노
+bounds:1735,505,251,62
+offsets:4,3,255,68
+rotate:90
+눈 의문
+bounds:1508,1122,251,65
+offsets:1,4,253,71
+눈동자 오
+bounds:1354,666,35,31
+offsets:3,4,40,37
+rotate:90
+눈동자 오 분노
+bounds:1419,666,35,30
+offsets:2,3,38,36
+rotate:90
+눈동자 오 약진지
+bounds:1312,670,40,31
+offsets:2,4,43,36
+눈동자 오 의문
+bounds:1275,665,35,36
+offsets:2,4,38,41
+눈동자 왼
+bounds:1387,665,36,30
+offsets:1,4,37,36
+rotate:90
+눈동자 왼 분노
+bounds:1451,673,37,28
+offsets:0,2,37,31
+눈동자 왼 약진지
+bounds:1242,658,43,31
+offsets:1,2,44,34
+rotate:90
+눈동자 왼 의문
+bounds:1205,661,40,35
+offsets:2,2,44,40
+rotate:90
+눈썹오른 디폴트
+bounds:1110,675,93,26
+offsets:2,5,97,37
+눈썹왼 디폴트
+bounds:2,2,109,22
+offsets:1,4,112,31
+뒷머
+bounds:1490,758,348,341
+offsets:5,5,362,349
+뒷머2
+bounds:1761,379,69,124
+offsets:15,5,89,136
+땀
+bounds:201,4,10,20
+offsets:4,3,16,26
+목
+bounds:940,28,223,375
+offsets:5,6,233,384
+rotate:90
+상체
+bounds:2,646,760,1145
+offsets:6,8,785,1165
+얼굴 디폴트
+bounds:764,1447,344,396
+offsets:1,4,349,403
+rotate:90
+얼굴 분노
+bounds:764,651,344,396
+offsets:1,4,349,403
+얼굴 분노 감은눈
+bounds:764,1049,344,396
+offsets:1,4,349,403
+얼굴 약진지
+bounds:1110,1101,344,396
+offsets:1,4,349,403
+rotate:90
+얼굴 약진지 감은눈
+bounds:940,253,344,396
+offsets:1,4,349,403
+얼굴 웃음
+bounds:1162,1447,344,396
+offsets:1,4,349,403
+rotate:90
+얼굴 의문
+bounds:1286,267,344,396
+offsets:1,4,349,403
+얼굴 의문 감은눈
+bounds:1110,703,344,396
+offsets:1,4,349,403
+오른쪽머리
+bounds:1560,1555,236,274
+offsets:2,5,243,282
+rotate:90
+왼쪽머리
+bounds:1508,1189,256,297
+offsets:0,6,258,304
+rotate:90
+왼팔
+bounds:1632,54,127,449
+offsets:15,6,150,469
+으
+bounds:1426,11,86,90
+offsets:15,7,106,99
+입 디폴트
+bounds:113,9,86,15
+offsets:4,6,92,25
+입 분노
+bounds:1761,9,119,66
+offsets:3,2,124,69
+rotate:90
+입 살짝벌린
+bounds:1761,130,131,65
+offsets:5,3,139,75
+rotate:90
+입 약진지
+bounds:1761,263,114,75
+offsets:4,4,121,81
+rotate:90
+입 웃음
+bounds:1632,542,125,72
+offsets:4,4,131,78
+rotate:90
+입 의문
+bounds:1317,28,107,73
+offsets:3,3,113,79
+짜증
+bounds:1456,1071,28,28
+offsets:6,5,37,38
+하이라이트 오
+bounds:113,2,5,5
+offsets:3,3,10,11
+하이라이트 왼
+bounds:120,2,5,5
+offsets:3,4,12,12
+하체
+bounds:2,26,618,936
+offsets:107,0,777,951
+rotate:90
+헤어밴드
+bounds:1317,103,291,162
+offsets:4,3,299,167

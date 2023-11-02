@@ -1,0 +1,120 @@
+skeleton.png
+size:2027,1788
+filter:Linear,Linear
+pma:true
+눈 디폴트
+bounds:1578,1701,274,85
+offsets:1,2,275,88
+눈 웃음
+bounds:1451,611,390,481
+offsets:5,4,396,487
+rotate:90
+눈 화난
+bounds:1300,1703,276,83
+offsets:2,3,279,88
+눈동자 오 디폴트
+bounds:642,1728,64,58
+offsets:2,3,66,62
+눈동자 오 화난
+bounds:386,1733,64,53
+offsets:2,1,66,56
+눈동자 왼 디폴트
+bounds:708,1727,61,59
+offsets:2,2,63,62
+눈동자 왼 화난
+bounds:452,1732,58,54
+offsets:3,3,61,57
+눈썹 오 디폴트
+bounds:109,1766,130,20
+offsets:0,3,130,26
+눈썹 왼 디폴트
+bounds:241,1752,88,34
+offsets:7,1,98,36
+더듬이
+bounds:978,1715,185,71
+offsets:0,0,190,74
+뒷머리
+bounds:1165,1715,71,133
+offsets:2,5,80,141
+rotate:90
+뒷옷
+bounds:968,1003,308,896
+offsets:9,8,331,916
+rotate:90
+땀
+bounds:25,1776,10,20
+offsets:4,3,16,26
+rotate:90
+머리카락
+bounds:1352,1313,496,386
+offsets:13,2,514,393
+목
+bounds:888,1397,304,462
+offsets:4,4,317,477
+rotate:90
+안쪽머리
+bounds:2,1659,184,105
+offsets:7,3,200,114
+앞머리가닥
+bounds:1854,1701,85,171
+offsets:9,2,100,173
+rotate:90
+얼굴 감은눈
+bounds:2,1091,388,481
+offsets:5,4,396,487
+rotate:90
+얼굴 눈감 화난
+bounds:485,1007,388,481
+offsets:5,4,396,487
+rotate:90
+얼굴 디폴트
+bounds:2,701,388,481
+offsets:5,4,396,487
+rotate:90
+얼굴 장난
+bounds:485,617,388,481
+offsets:5,4,396,487
+rotate:90
+얼굴 화난
+bounds:968,613,388,481
+offsets:5,4,396,487
+rotate:90
+오른팔
+bounds:188,1481,698,233
+offsets:5,3,708,244
+입 닫은
+bounds:47,1776,60,10
+offsets:4,6,67,21
+입 디폴트
+bounds:864,1716,112,70
+offsets:2,2,116,73
+입 살짝벌
+bounds:331,1749,37,53
+offsets:4,2,44,58
+rotate:90
+입 장난
+bounds:512,1729,128,57
+offsets:6,2,138,61
+입 화난
+bounds:771,1718,91,68
+offsets:4,4,97,75
+하이라이트 오
+bounds:2,1779,7,10
+offsets:2,1,9,11
+rotate:90
+하이라이트 왼
+bounds:14,1778,8,9
+offsets:1,1,9,10
+rotate:90
+하체
+bounds:2,2,607,1449
+offsets:12,0,626,1454
+rotate:90
+
+skeleton_2.png
+size:1355,1512
+filter:Linear,Linear
+pma:true
+상체
+bounds:2,2,1351,1508
+offsets:9,7,1376,1517

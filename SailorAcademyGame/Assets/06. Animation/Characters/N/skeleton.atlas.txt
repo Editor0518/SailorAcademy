@@ -1,0 +1,165 @@
+skeleton.png
+size:1825,1794
+filter:Linear,Linear
+pma:true
+눈 디폴트
+bounds:1720,1509,283,88
+offsets:0,1,283,90
+rotate:90
+눈 분노
+bounds:899,69,298,80
+offsets:0,0,299,82
+rotate:90
+눈 웃음
+bounds:1386,52,283,83
+offsets:2,2,285,86
+눈 한심
+bounds:981,79,288,78
+offsets:4,3,292,81
+rotate:90
+눈동자 오 디폴트
+bounds:981,14,63,47
+offsets:0,2,63,50
+rotate:90
+눈동자 오 분노
+bounds:1764,873,63,42
+offsets:1,4,65,50
+rotate:90
+눈동자 오 한심
+bounds:1776,1240,63,45
+offsets:1,2,65,47
+rotate:90
+눈동자 왼 디폴트
+bounds:899,7,60,48
+offsets:2,3,62,52
+rotate:90
+눈동자 왼 분노
+bounds:1779,1305,61,44
+offsets:3,2,64,47
+rotate:90
+눈동자 왼 한심
+bounds:1764,810,61,43
+offsets:2,2,63,46
+rotate:90
+더듬2
+bounds:1513,490,192,178
+offsets:3,2,199,183
+rotate:90
+더듬이
+bounds:1386,137,296,265
+offsets:3,0,302,267
+rotate:90
+뒷더듬이
+bounds:1653,264,117,101
+offsets:6,4,124,107
+뒷더듬이1
+bounds:1693,547,88,135
+offsets:1,2,91,139
+뒷더듬이2
+bounds:1653,367,121,123
+offsets:3,2,125,125
+rotate:90
+뒷머리
+bounds:789,1245,547,524
+offsets:6,2,556,531
+rotate:90
+땀
+bounds:2,2,10,20
+offsets:4,3,16,26
+rotate:90
+머리 바탕
+bounds:2,22,341,490
+offsets:2,2,346,494
+rotate:90
+머리 오 옆
+bounds:863,369,64,196
+offsets:2,3,66,199
+rotate:90
+목
+bounds:1513,684,162,238
+offsets:4,4,170,246
+rotate:90
+상체
+bounds:2,833,785,959
+offsets:5,5,792,968
+얼굴 감은눈
+bounds:1114,840,323,403
+offsets:2,2,327,406
+얼굴 감은눈 분노
+bounds:494,40,323,403
+offsets:2,3,328,407
+rotate:90
+얼굴 감은눈 웃음
+bounds:789,840,323,403
+offsets:2,2,326,407
+얼굴 감은눈 한심
+bounds:863,435,323,403
+offsets:3,3,327,409
+얼굴 디폴트
+bounds:1315,1469,323,403
+offsets:2,2,327,406
+rotate:90
+얼굴 분노
+bounds:1061,30,323,403
+offsets:2,3,328,407
+얼굴 웃음
+bounds:1188,435,323,403
+offsets:2,2,326,407
+얼굴 한심
+bounds:1439,848,323,403
+offsets:3,3,327,409
+옆머리
+bounds:1315,1308,159,462
+offsets:2,2,163,465
+rotate:90
+으
+bounds:1653,172,86,90
+offsets:15,7,106,99
+입 디폴트
+bounds:2,14,32,6
+offsets:3,2,36,9
+입 디폴트2
+bounds:494,2,53,36
+offsets:3,3,57,40
+입 분노
+bounds:1779,1437,70,43
+offsets:3,2,75,46
+rotate:90
+입 살짝벌
+bounds:549,3,53,35
+offsets:3,3,57,39
+입 입닫
+bounds:1764,938,68,39
+offsets:3,4,73,44
+rotate:90
+입 한심
+bounds:604,12,46,26
+offsets:1,2,47,28
+입 활짝웃음
+bounds:1779,1368,67,42
+offsets:3,3,70,45
+rotate:90
+짜증
+bounds:652,10,28,28
+offsets:6,5,37,38
+하이라이트 오
+bounds:36,8,12,11
+offsets:2,3,15,15
+rotate:90
+하이라이트 왼
+bounds:49,9,11,11
+offsets:1,1,12,13
+하체
+bounds:2,365,466,859
+offsets:4,0,480,864
+rotate:90
+흰자
+bounds:1315,1253,230,53
+offsets:2,3,232,56
+흰자 분노
+bounds:1764,1008,230,48
+offsets:2,2,235,53
+rotate:90
+흰자 한심
+bounds:1547,1255,227,51
+offsets:3,3,232,54

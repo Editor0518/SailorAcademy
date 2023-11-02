@@ -42,12 +42,12 @@ namespace Michsky.UI.Dark
             if (disableSplashScreen)
             {
                 splashScreen.SetActive(false);
-                modalWindowParent.SetActive(true);
+                if (modalWindowParent != null) modalWindowParent.SetActive(true);
 
-                mainPanelParent.gameObject.SetActive(true);
+                if(mainPanelParent!=null) mainPanelParent.gameObject.SetActive(true);
                 transitionHelper.gameObject.SetActive(true);
 
-                mainPanelManager.EnableFirstPanel();
+                if(mainPanelManager!=null) mainPanelManager.EnableFirstPanel();
 
                 transitionHelper.location = 0;
                 transitionHelper.DissolveOut();
@@ -58,9 +58,9 @@ namespace Michsky.UI.Dark
             else
             {
                 splashScreen.SetActive(true);
-                modalWindowParent.SetActive(false);
+                if (modalWindowParent != null) modalWindowParent.SetActive(false);
 
-                mainPanelParent.gameObject.SetActive(false);
+                if (mainPanelParent != null) mainPanelParent.gameObject.SetActive(false);
                 transitionHelper.gameObject.SetActive(false);
 
                 InitializeTitles();         
@@ -165,12 +165,12 @@ namespace Michsky.UI.Dark
             yield return new WaitForSecondsRealtime(disableTimer);
 
             splashScreen.SetActive(false);
-            modalWindowParent.SetActive(true);
+            if (modalWindowParent != null) modalWindowParent.SetActive(true);
 
-            mainPanelParent.gameObject.SetActive(true);
+            if (mainPanelParent != null) mainPanelParent.gameObject.SetActive(true);
             transitionHelper.gameObject.SetActive(true);
 
-            mainPanelManager.EnableFirstPanel();
+            if(mainPanelManager!=null) mainPanelManager.EnableFirstPanel();
 
             transitionHelper.location = 0;
             transitionHelper.DissolveOut();

@@ -18,10 +18,15 @@ public class VariableHolder : MonoBehaviour
 
         string[] str2 = str[1].Split("?");
         string value = str2[0];
-
-        string[] str3 = str[1].Split(":");
-        int whenTrue = int.Parse(str3[0]), whenFalse = int.Parse(str3[1]);
-        return GetVariable(name).Equals(value) ? whenTrue : whenFalse;
+        //vh.ch1crim==hide?24:25
+        string[] str3 = str2[1].Split(":");
+        Debug.Log(str3[0]);
+        Debug.Log(str3[1]);
+        int whenTrue = int.Parse(str3[0]);
+        int whenFalse = int.Parse(str3[1]);
+        if (GetVariable(name) != "") return GetVariable(name).Equals(value) ? whenTrue : whenFalse;
+        else return whenTrue;
+       
     }
 
     static string GetVariable(string name)

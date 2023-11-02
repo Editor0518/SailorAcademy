@@ -1,5 +1,133 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &426545049031827236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5818357522354066909}
+  - component: {fileID: 3329522950168734438}
+  m_Layer: 0
+  m_Name: Ambience
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5818357522354066909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426545049031827236}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8676450532023186407}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &3329522950168734438
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426545049031827236}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.4
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &554213403774042883
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,9 +159,284 @@ Transform:
   - {fileID: 3439767891236984853}
   - {fileID: 3439767892397186692}
   - {fileID: 3439767891640198292}
+  - {fileID: 8676450532023186407}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1253741631023065465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8676450532023186407}
+  - component: {fileID: 2324262479781519737}
+  - component: {fileID: 8863096828655965008}
+  m_Layer: 0
+  m_Name: BackgroundMusic
+  m_TagString: Music
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8676450532023186407
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253741631023065465}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6876551483188634052}
+  - {fileID: 5818357522354066909}
+  m_Father: {fileID: 7213668895838701523}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2324262479781519737
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253741631023065465}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.6
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &8863096828655965008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253741631023065465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4142e00c655b3f447947f187a67beade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audiosource: {fileID: 0}
+  amb: {fileID: 3329522950168734438}
+  audioSE: {fileID: 6929160906153213298}
+--- !u!1 &2468992223536397069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6876551483188634052}
+  - component: {fileID: 6929160906153213298}
+  m_Layer: 0
+  m_Name: SE
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6876551483188634052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2468992223536397069}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8676450532023186407}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &6929160906153213298
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2468992223536397069}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3439767891236984856
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,135 +503,352 @@ MonoBehaviour:
   - strName: "\uB9C8\uB974\uC2A4"
     code: M
     job: 
-    relation: 20
-    mental: 10
+    relation: 10
+    mental: 5
     color: '#C69478'
     isAlive: 0
     jobSprite: {fileID: 21300000, guid: ba6c953dcb2efad47b2a8081260be9e7, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
-      sprite: {fileID: 21300000, guid: d50dcae1ac85e9f4ba53cc21a820ce5c, type: 3}
+      sprite: {fileID: 21300000, guid: 2fa7c4c4650123e4296ac5f15744326c, type: 3}
+    asset: {fileID: 11400000, guid: 513ed050c0d468849bcb32b29b663354, type: 2}
+    faces:
+    - {fileID: 11400000, guid: 698f1bad874b2274fa48aa7b9d09b7be, type: 2}
+    - {fileID: 11400000, guid: ed1bb72fc5a4ddb4f908cdb320365cc3, type: 2}
+    - {fileID: 11400000, guid: bcc194f770a4498428c1764353cd2539, type: 2}
+    - {fileID: 11400000, guid: 0fdf4f0da5ad77748b1a5bc333267d7e, type: 2}
+    - {fileID: 11400000, guid: e1b136749a068754cbb165cf096e1071, type: 2}
+    - {fileID: 11400000, guid: ff2810b9872ca864c9871ff88bef2373, type: 2}
+    - {fileID: 11400000, guid: b76ca9c3342deaa419bc7f059dc9d5c9, type: 2}
+    - {fileID: 11400000, guid: 498d70e7722e4b848b9c7eddb9a062da, type: 2}
+    - {fileID: 11400000, guid: c7d1f60f31bb90548a8bf0989ccf3a6a, type: 2}
+    - {fileID: 11400000, guid: 1d3910b2160a0454a8312ac159388361, type: 2}
+    - {fileID: 11400000, guid: 9de783149d3731d47bf39af554d89fd5, type: 2}
+    - {fileID: 11400000, guid: 53d24a98848eca644a5a68567e392034, type: 2}
+    - {fileID: 11400000, guid: a754f8f41c6318a45887ff91d3883779, type: 2}
+    - {fileID: 11400000, guid: 905d3422831b908478bdf21cbf2620db, type: 2}
+    - {fileID: 11400000, guid: 286176f68e3310f4d8259762a6fc5879, type: 2}
+    - {fileID: 11400000, guid: 0b6a00faae1b3864487f270bd352dfa0, type: 2}
+    - {fileID: 11400000, guid: c81ab417f652fd2489aec7b2bbeaa8bb, type: 2}
+    - {fileID: 11400000, guid: 561ad31410409304c9ae95f29cb85d90, type: 2}
+    - {fileID: 11400000, guid: c4d130f06615d4d4db038885a7f61904, type: 2}
+    - {fileID: 11400000, guid: 87d0b417de9923d4f96205c9a1191943, type: 2}
+    - {fileID: 11400000, guid: 9252f85501d1af643857c0271bd2bcae, type: 2}
+    - {fileID: 11400000, guid: 110a84655b615d94f90d91b3b25531be, type: 2}
+    - {fileID: 11400000, guid: a6436502969e28746830068eb061b86c, type: 2}
+    - {fileID: 11400000, guid: 79d012a6f55498f409664ad344228be9, type: 2}
+    - {fileID: 11400000, guid: d1f7e0d0644737146b0681d7f93d6e29, type: 2}
+    - {fileID: 11400000, guid: 81b7af181e2b85d4d8b54f563cc05d36, type: 2}
+    - {fileID: 11400000, guid: 73b3bb3e7c3825c47abb14e3af5b0a20, type: 2}
+    - {fileID: 11400000, guid: 2c13a75e967bef941b220bdbf43c5448, type: 2}
+    posScale: {x: 31, y: 50, z: 50}
   - strName: "\uD55C\uAC00\uD76C"
     code: H
     job: 
-    relation: 20
-    mental: 10
+    relation: 10
+    mental: 5
     color: '#F399A2'
     isAlive: 0
     jobSprite: {fileID: 21300000, guid: 90ea51e8829490045bf22bbb3d255edf, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
-      sprite: {fileID: 21300000, guid: 93887097acd739146bc1d801f3bd3b20, type: 3}
+      sprite: {fileID: 21300000, guid: f20f8b373df6c534da6bc9322b08f442, type: 3}
+    asset: {fileID: 11400000, guid: 5f89caaf458cd8f439c6dfddea7b472a, type: 2}
+    faces:
+    - {fileID: 11400000, guid: 572b85561cd3da0409a81ad5e85e385b, type: 2}
+    - {fileID: 11400000, guid: 22064292dba13a84f8a9726c544393bf, type: 2}
+    - {fileID: 11400000, guid: 0a683f2d2c3605f45a50e0cb05f9b319, type: 2}
+    - {fileID: 11400000, guid: 7b8f9dda611bae946a3c7b15f711dfef, type: 2}
+    - {fileID: 11400000, guid: 21aa030163b878d4fa59d72692607c7f, type: 2}
+    - {fileID: 11400000, guid: be120317705345f4a99af6994c30fba7, type: 2}
+    - {fileID: 11400000, guid: a4a43db68f416a94192959f0d367c854, type: 2}
+    - {fileID: 11400000, guid: 9b2e120ec5aa10b418cd7036293f9ddb, type: 2}
+    - {fileID: 11400000, guid: 777b6e3893f26584e96ecc1bd0248364, type: 2}
+    - {fileID: 11400000, guid: 7c898377f1fe85c439ccd8038876ee79, type: 2}
+    - {fileID: 11400000, guid: b0e2de38564df9d44ac277a40c503962, type: 2}
+    - {fileID: 11400000, guid: 8bc6fe0105cdca5449f079f397373fda, type: 2}
+    - {fileID: 11400000, guid: 442954f5949c82a4f8ffffa45f301850, type: 2}
+    - {fileID: 11400000, guid: 9e33371761e006d4fbf9f39da3c47827, type: 2}
+    posScale: {x: 19, y: 128, z: 48}
   - strName: "\uC624\uBBFC\uD604"
     code: O
     job: 
-    relation: 20
-    mental: 10
+    relation: 10
+    mental: 5
     color: '#D2565D'
     isAlive: 0
     jobSprite: {fileID: 21300000, guid: eb203eef872707f46aec7564ad66b439, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
-      sprite: {fileID: 21300000, guid: c2985d114a05e1f4c8e94bea3828a046, type: 3}
+      sprite: {fileID: 21300000, guid: c66cd3b62b9dd894eadf35f948644b86, type: 3}
+    asset: {fileID: 11400000, guid: d20e58fa6e522374897d051e4e66be4e, type: 2}
+    faces:
+    - {fileID: 11400000, guid: 26a63f9b05174764ca51e4f75f7fa980, type: 2}
+    - {fileID: 11400000, guid: 34d5dd4007ac1c9488266164cd5fba55, type: 2}
+    - {fileID: 11400000, guid: 6d98bbaae92b94e498e7460d725cd151, type: 2}
+    - {fileID: 11400000, guid: a0b42719990fb7540ac6753d93ae4207, type: 2}
+    - {fileID: 11400000, guid: 8699c59c302f1bb47bad9a5e01c71cdc, type: 2}
+    - {fileID: 11400000, guid: 9ec31b949fc8a7d468540c8bd5e1df98, type: 2}
+    - {fileID: 11400000, guid: 27ec5c0cdd4d05b4bb659d329bcbc6cd, type: 2}
+    - {fileID: 11400000, guid: 01ab4b814ea32144bb909cfb482b3399, type: 2}
+    - {fileID: 11400000, guid: 4dfefe14ca60638448d9f644aaeea5da, type: 2}
+    - {fileID: 11400000, guid: 674c11a618cc4514c91e2cd88557dd2e, type: 2}
+    - {fileID: 11400000, guid: 8d05f938e43e29543bbdc2010be689a8, type: 2}
+    - {fileID: 11400000, guid: d8fbb38a0d0fe5d469eadd6c20641a9a, type: 2}
+    - {fileID: 11400000, guid: 3bbef3af8ec7e8943b867c0fae1b0d34, type: 2}
+    - {fileID: 11400000, guid: e7940bc95dfa49b4c8cff8c8def2f783, type: 2}
+    - {fileID: 11400000, guid: 2693a0b9f3b8c1440a423fd1dda32824, type: 2}
+    - {fileID: 11400000, guid: 5019402437b5fd348b79c75476ed0c75, type: 2}
+    - {fileID: 11400000, guid: 8103d5c39ef63cf4aa65eafb97477bf6, type: 2}
+    - {fileID: 11400000, guid: 220882aafca659a41ae7675c3bdc8062, type: 2}
+    - {fileID: 11400000, guid: a48c7721043474c4b9d00bcf02cbca5d, type: 2}
+    - {fileID: 11400000, guid: 844968b1d0abb3c4fbc8f8bec529b3cc, type: 2}
+    posScale: {x: -48, y: 50, z: 50}
   - strName: "\uB808\uC624"
     code: R
     job: 
-    relation: 20
-    mental: 10
+    relation: 10
+    mental: 5
     color: '#50488C'
     isAlive: 0
     jobSprite: {fileID: 21300000, guid: 59d24d5831b9df549b4d9a15e3215811, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
-      sprite: {fileID: 21300000, guid: 1a45545655dac1a49ad45c317cad01b3, type: 3}
+      sprite: {fileID: 21300000, guid: 48976fbb1cafa1b418e5ba00a18252eb, type: 3}
+    asset: {fileID: 11400000, guid: 0ff468c72fe1ad648b8e5104ec95c509, type: 2}
+    faces:
+    - {fileID: 11400000, guid: eff8281494c9ef14ea1c66da900fba3a, type: 2}
+    - {fileID: 11400000, guid: fe2bc288bb50cf7448889b5a8af311f2, type: 2}
+    - {fileID: 11400000, guid: 34f97f8b68cc50d4dae9e1d8245556c8, type: 2}
+    - {fileID: 11400000, guid: f6174fb863ae5dd4f9f1af2b396c9807, type: 2}
+    - {fileID: 11400000, guid: c864b0b0b649456429985db16bae2dfa, type: 2}
+    - {fileID: 11400000, guid: 90ad5aaf9f589ae4bbd4e6186946022f, type: 2}
+    - {fileID: 11400000, guid: 3ff1c13158f15574cb210ebb280e3643, type: 2}
+    - {fileID: 11400000, guid: 29678fa6ede55db45af4b30acf1876ef, type: 2}
+    - {fileID: 11400000, guid: 3eebd75a22c1e4f4b896174818d4d0f3, type: 2}
+    - {fileID: 11400000, guid: 6f838a6d46e20a54ca191218431122dc, type: 2}
+    - {fileID: 11400000, guid: 26babd9947f7dd24b99d44f85f88f28f, type: 2}
+    - {fileID: 11400000, guid: 9e6dcb966fe5dde42ae7ff11f21a418e, type: 2}
+    - {fileID: 11400000, guid: 56c0d0594cb5f634d9373b953896a8a6, type: 2}
+    - {fileID: 11400000, guid: 4647c13e35f9c9242b99301908d3d510, type: 2}
+    - {fileID: 11400000, guid: 76c7d1e2fe4f9a24f8aafc467699dab4, type: 2}
+    - {fileID: 11400000, guid: 21987d08261409b4bbac25750f9c2ccf, type: 2}
+    - {fileID: 11400000, guid: 0201f19213435f740a9ae460dcf8524d, type: 2}
+    - {fileID: 11400000, guid: aff5d733fa739144999f8ec9fa378fa3, type: 2}
+    posScale: {x: 0, y: 80, z: 51}
   - strName: "\uCD5C\uC2DC\uC628"
     code: C
     job: 
-    relation: 20
-    mental: 10
+    relation: 10
+    mental: 5
     color: '#B04449'
     isAlive: 0
     jobSprite: {fileID: 21300000, guid: 59d24d5831b9df549b4d9a15e3215811, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
-      sprite: {fileID: 21300000, guid: 4f3c64b68fec0b1498f5f8eecf11ff58, type: 3}
+      sprite: {fileID: 21300000, guid: 5e79b6604488ca24fb7f8d2f2e75d5ac, type: 3}
+    asset: {fileID: 11400000, guid: 6a610a9a8745285419c57a8cc1e3bdc3, type: 2}
+    faces:
+    - {fileID: 11400000, guid: bee6a604b5203244990f0515f7bd53c3, type: 2}
+    - {fileID: 11400000, guid: 918dacf94dc577d4ebf815eb534a8756, type: 2}
+    - {fileID: 11400000, guid: d7049efcf0f0fc24ca102b0a7631fe3a, type: 2}
+    - {fileID: 11400000, guid: 619ff5440a1c9144999fe1261986dd75, type: 2}
+    - {fileID: 11400000, guid: 6c7384a3878471e4fb9358fb51c0d18e, type: 2}
+    - {fileID: 11400000, guid: 3688c9aa69c83384786a812eb3d9cab2, type: 2}
+    - {fileID: 11400000, guid: c5d40b82e8d814b4596c82f6bbc17490, type: 2}
+    - {fileID: 11400000, guid: 15d160d5492091f4293df20e977acc2e, type: 2}
+    - {fileID: 11400000, guid: 785402b6c0112cd46ac353f36594d753, type: 2}
+    - {fileID: 11400000, guid: 55952663badea7f44b51055d75ae468e, type: 2}
+    - {fileID: 11400000, guid: 5601db467c2f20c469b6a557fd6acaf0, type: 2}
+    - {fileID: 11400000, guid: 2873fc583bf129240b1d0795603701b8, type: 2}
+    - {fileID: 11400000, guid: 86d8b38db8210dc4183bc051ce596402, type: 2}
+    - {fileID: 11400000, guid: eb31aa28742be5f4eb5dbc9c96b5ece0, type: 2}
+    posScale: {x: 0, y: 14, z: 53}
   - strName: "\uB0A8\uAD81\uBBF8\uB798"
     code: N
     job: 
-    relation: 20
-    mental: 10
+    relation: 10
+    mental: 5
     color: '#7F888C'
     isAlive: 0
     jobSprite: {fileID: 21300000, guid: b30ff8938ffe2044aa2fbe3f6e187af3, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
-      sprite: {fileID: 21300000, guid: fb61d08a9b8341d469ab7c382a481a81, type: 3}
+      sprite: {fileID: 21300000, guid: a695e0174661ac14d9ef5831ffd793a4, type: 3}
+    asset: {fileID: 11400000, guid: cd75f6cf8d39afa44ad9cb43d6c97e93, type: 2}
+    faces:
+    - {fileID: 11400000, guid: 635d33ce8dd21874bb3f70ed30521d1c, type: 2}
+    - {fileID: 11400000, guid: 9ca7d01acb3270541bb28f2792a8de98, type: 2}
+    - {fileID: 11400000, guid: bcd922685bf61af43be7cf942fac028b, type: 2}
+    - {fileID: 11400000, guid: a6aeee6b5cb89be41b94746626da778d, type: 2}
+    - {fileID: 11400000, guid: b6fe4866400561046bcba5a1900eb853, type: 2}
+    - {fileID: 11400000, guid: adad8e5e11fd19d49be8642efa981475, type: 2}
+    - {fileID: 11400000, guid: 2e4ddc5d93c5eea43be939bf88396af4, type: 2}
+    - {fileID: 11400000, guid: 2868f811d94c6be45890c8ff02920bde, type: 2}
+    - {fileID: 11400000, guid: 6b3305e8e55e21a4989bcd422875d66d, type: 2}
+    - {fileID: 11400000, guid: 9c4df47a83b69ef42a2dfad2b46b2daf, type: 2}
+    posScale: {x: 0, y: 50, z: 50}
   - strName: "\uC774\uC900"
     code: L
     job: 
-    relation: 20
-    mental: 10
+    relation: 10
+    mental: 5
     color: '#CBB153'
     isAlive: 0
     jobSprite: {fileID: 21300000, guid: f8c44be9bfed08a4e94eda49870de8e7, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
-      sprite: {fileID: 21300000, guid: 2524d4d082b4da14db0bd80f64480ece, type: 3}
+      sprite: {fileID: 21300000, guid: b2cebc43737eaa846aba2eefc0b1af6e, type: 3}
+    asset: {fileID: 11400000, guid: 3cddd20ca184fc442991819df39a1f48, type: 2}
+    faces:
+    - {fileID: 11400000, guid: aefc9e062a17b6b4cbb72430fabf0f56, type: 2}
+    - {fileID: 11400000, guid: 626afef844cd6284493b9e7277ae7689, type: 2}
+    - {fileID: 11400000, guid: 6b0b725f6eaf6cb4db50699d0820f955, type: 2}
+    - {fileID: 11400000, guid: 7af395d201bb3464e8d4219b9aebcf6e, type: 2}
+    - {fileID: 11400000, guid: d31ca0aabcc6ac24ab705e8cefad79d8, type: 2}
+    - {fileID: 11400000, guid: 5ab8a40a702ac5048b8c0b05db01ec74, type: 2}
+    - {fileID: 11400000, guid: 35bec9ec0e386f14fb62047b3e237b29, type: 2}
+    - {fileID: 11400000, guid: f81c46a895097324c8d5bc0e0c658925, type: 2}
+    - {fileID: 11400000, guid: 3e82fba2247016942ab64b8239cf3f84, type: 2}
+    - {fileID: 11400000, guid: 1ac0d5edd79f2a54192c309ff79c35f5, type: 2}
+    - {fileID: 11400000, guid: ef5f92db39a4c6e4cba679f6a720b7d6, type: 2}
+    - {fileID: 11400000, guid: 572c48dd91db985489d4baa56025c284, type: 2}
+    - {fileID: 11400000, guid: 5ed21c19779660a49ae58ad5fc9d6d27, type: 2}
+    - {fileID: 11400000, guid: adb8e54588b2a0e4d84291e1981eb779, type: 2}
+    - {fileID: 11400000, guid: 0301367360250054a8f675e135741ecf, type: 2}
+    - {fileID: 11400000, guid: d8e919949840e31438208a27f338a708, type: 2}
+    - {fileID: 11400000, guid: 89b7916426f05c8468d8f7f77e8ec4bc, type: 2}
+    - {fileID: 11400000, guid: 06dd7e4123d006e41821b4d347b2f7ca, type: 2}
+    posScale: {x: 53, y: 389, z: 43}
   - strName: "\uAE40\uB3C4\uD604"
     code: K
     job: 
-    relation: 20
-    mental: 10
+    relation: 10
+    mental: 5
     color: '#72CA54'
     isAlive: 0
     jobSprite: {fileID: 21300000, guid: 3e614b50fb1430c4d9d52b43c85b539f, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
-      sprite: {fileID: 21300000, guid: ffaabd0f2cf20e747a263746569758b9, type: 3}
+      sprite: {fileID: 21300000, guid: 778e5f08229ce17489274ff560c5bcc3, type: 3}
+    asset: {fileID: 11400000, guid: e21cd61781807274eb65eabb8ec2750d, type: 2}
+    faces:
+    - {fileID: 11400000, guid: 3d62bb269f3ecb14fbb12fb0f7d8eacd, type: 2}
+    - {fileID: 11400000, guid: 0cee0d4ae6f81bb48be2833421f5994a, type: 2}
+    - {fileID: 11400000, guid: 6533fe507beddaf4c9963eb1b4f60fd7, type: 2}
+    - {fileID: 11400000, guid: cef6548673e11e4429e304fa76f38535, type: 2}
+    - {fileID: 11400000, guid: 58055f1dd9469a94d8b42e8bec7a7f7c, type: 2}
+    - {fileID: 11400000, guid: 8915b8ee4094eae4a9660d1d73e38fe6, type: 2}
+    - {fileID: 11400000, guid: 59252dd5222b7bf459a137c938ca4b38, type: 2}
+    - {fileID: 11400000, guid: 437224a3a3cd94442bbfa4e9ab9758f1, type: 2}
+    - {fileID: 11400000, guid: 537e543499c94b7409aef4d1fa1d1a31, type: 2}
+    - {fileID: 11400000, guid: ba226aff3eb48674a8540c298f4ba2ba, type: 2}
+    - {fileID: 11400000, guid: 75a92c5761f181245950a5a5d93e7a4f, type: 2}
+    - {fileID: 11400000, guid: 5536bfea5a3adf8479ba805f11b645be, type: 2}
+    - {fileID: 11400000, guid: 185c2ab12cfee2643aa5b60f872b2768, type: 2}
+    - {fileID: 11400000, guid: ed4f1f41dd7597f44810c6e51cbd1269, type: 2}
+    posScale: {x: -28, y: 383, z: 39}
   - strName: "\uC720\uC7AC\uD76C"
     code: J
     job: 
-    relation: 20
-    mental: 10
+    relation: 10
+    mental: 5
     color: '#464646'
     isAlive: 0
     jobSprite: {fileID: 21300000, guid: 3e614b50fb1430c4d9d52b43c85b539f, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
-      sprite: {fileID: 21300000, guid: c99b88a1ed6c53f4180975f9f45a5f0d, type: 3}
+      sprite: {fileID: 21300000, guid: 532d3f23e6261b347833745f226c044a, type: 3}
+    asset: {fileID: 11400000, guid: 062dccf06c8c309468c9f632fbb5843a, type: 2}
+    faces:
+    - {fileID: 11400000, guid: 267542bf1f7b59e4eb5d4337e73965ab, type: 2}
+    - {fileID: 11400000, guid: 17433f9fea6b78c418a37b5e0bc555ae, type: 2}
+    - {fileID: 11400000, guid: 048dc96b875f0d346ba184d4a93c2052, type: 2}
+    - {fileID: 11400000, guid: d32c9a44360072c42bc3013be96d4bce, type: 2}
+    - {fileID: 11400000, guid: 9deb7f6b31da30040bc7a9a76e2beab0, type: 2}
+    - {fileID: 11400000, guid: e6ed80373e158d24b9275074d107f7dd, type: 2}
+    - {fileID: 11400000, guid: f26e15e695e027f48afe053b77390677, type: 2}
+    - {fileID: 11400000, guid: 03c4dc281c17c4642963a66be914ffd9, type: 2}
+    - {fileID: 11400000, guid: 9ace0fb9da8483944ae39b6c4c1800ff, type: 2}
+    - {fileID: 11400000, guid: 3a82f5cd0e6449842bec3d7d4c94f8ba, type: 2}
+    - {fileID: 11400000, guid: 879f3a5c72ce7fe44aaa3f7f0f1f65be, type: 2}
+    - {fileID: 11400000, guid: 063e586e94b4a104facf94a8b574807d, type: 2}
+    posScale: {x: 0, y: 409, z: 39}
   - strName: "\uCD5C\uAC00\uC628"
     code: G
     job: 
-    relation: 20
-    mental: 10
+    relation: 10
+    mental: 5
     color: '#628AE3'
     isAlive: 0
     jobSprite: {fileID: 21300000, guid: 3999eaea189086346ac790522dbda761, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
-      sprite: {fileID: 21300000, guid: 1c82163ec75c9694498c61f61bc45fcc, type: 3}
+      sprite: {fileID: 21300000, guid: 755ddfa8033e6fc4ca38ebd4fedfc1c7, type: 3}
+    asset: {fileID: 11400000, guid: 6da127e0ec0306d42a33f245f05b2555, type: 2}
+    faces:
+    - {fileID: 11400000, guid: f17cef8ad2d804245a15708e23bc4b80, type: 2}
+    - {fileID: 11400000, guid: ba53fd8addcf02c4ca0f5254fd09f0cc, type: 2}
+    - {fileID: 11400000, guid: c62967617cc9d8446b0331903f8b756b, type: 2}
+    - {fileID: 11400000, guid: cf43011844f7095458ffd7f32ad38427, type: 2}
+    - {fileID: 11400000, guid: 44497d32af72b284faa0705a9328bdc2, type: 2}
+    - {fileID: 11400000, guid: c63a972c068843047be9b6429fd45a09, type: 2}
+    - {fileID: 11400000, guid: c7a88ecee9b6440439a6d2f594021e22, type: 2}
+    - {fileID: 11400000, guid: 822e5f3885369704e9a37f4c1b688fdd, type: 2}
+    - {fileID: 11400000, guid: 4e47b5dcbf40a1044b0a02ec793ed9f5, type: 2}
+    - {fileID: 11400000, guid: eded9caeaa2608f479c2fae901251566, type: 2}
+    - {fileID: 11400000, guid: ac83c93d37c5957438e2573835fe31f0, type: 2}
+    - {fileID: 11400000, guid: bd015060acbbc4544993925d3d465ef6, type: 2}
+    - {fileID: 11400000, guid: 081750a10c6275e4ca7e5291d906020d, type: 2}
+    - {fileID: 11400000, guid: 653d62f1b0ef80949b82c56bc8b777d2, type: 2}
+    - {fileID: 11400000, guid: 6590cc2d5bacd774885edf9f318678f8, type: 2}
+    posScale: {x: 0, y: 252, z: 47}
   - strName: "\uC15C\uB85D"
     code: S
     job: 
-    relation: 20
-    mental: 10
+    relation: 10
+    mental: 5
     color: '#E29861'
     isAlive: 0
     jobSprite: {fileID: 21300000, guid: 3999eaea189086346ac790522dbda761, type: 3}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
-      sprite: {fileID: 21300000, guid: b7793eb8be5c0104997e6f130185cd43, type: 3}
+      sprite: {fileID: 21300000, guid: 0bf597d791faf1a4ca9bfdb47eedb7a9, type: 3}
+    asset: {fileID: 11400000, guid: 5d9d7bc0e6c61b240815828aa0d93308, type: 2}
+    faces:
+    - {fileID: 11400000, guid: 80a87d9dfa0f02349a748366bb63c072, type: 2}
+    - {fileID: 11400000, guid: c6215016d7e7f5147810292cd3ca69b1, type: 2}
+    - {fileID: 11400000, guid: d82c585ea4cd97b4b88c0802a62c89f1, type: 2}
+    - {fileID: 11400000, guid: 91d851985342ee949823efa1b10e246a, type: 2}
+    - {fileID: 11400000, guid: 089013c1c33cf22419c9d67a31eb6872, type: 2}
+    - {fileID: 11400000, guid: 6394070223a1b844f8b8294dd828d9ca, type: 2}
+    - {fileID: 11400000, guid: 1063995f8c3e02f499cd0b30255672a1, type: 2}
+    - {fileID: 11400000, guid: cbda99ae593117446ac80defa6cb64f9, type: 2}
+    - {fileID: 11400000, guid: 42c8f32f6cb1f444b801b3e4d2bc2104, type: 2}
+    - {fileID: 11400000, guid: e3e49c1e262156340934ec72cf0a0403, type: 2}
+    - {fileID: 11400000, guid: dc395188965e3244786f7350992d6a5a, type: 2}
+    posScale: {x: 152, y: 197, z: 47}
   - strName: "\uCD5C\uD638\uC900"
     code: P
     job: 
-    relation: 20
-    mental: 10
+    relation: 10
+    mental: 5
     color: '#848693'
     isAlive: 0
     jobSprite: {fileID: 0}
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
       sprite: {fileID: 21300000, guid: 1197d9ec0ec6d5449adf20b9108ac0ac, type: 3}
+    asset: {fileID: 11400000, guid: 383ad885ca5681643b7152fa5052da07, type: 2}
+    faces:
+    - {fileID: 11400000, guid: df8eed089f9036944aaeb38679e7d166, type: 2}
+    - {fileID: 11400000, guid: c382f61572ba6a545b177ee03f117569, type: 2}
+    - {fileID: 11400000, guid: 79704225f0d60de488d907e7dc87eb7e, type: 2}
+    - {fileID: 11400000, guid: f162b436dba9b984b8efe9fb4dc8b122, type: 2}
+    - {fileID: 11400000, guid: 876e685f20f6a5549a63f2806a515b2a, type: 2}
+    - {fileID: 11400000, guid: 65c73ecaf22d4674886a3a7057f53b63, type: 2}
+    - {fileID: 11400000, guid: 3fe45a46fb0ad5e45a39f5184d9bbc3c, type: 2}
+    posScale: {x: -40, y: 114, z: 47}
   - strName: "\uAE40\uC138\uC724"
     code: Y
     job: 
@@ -240,6 +860,14 @@ MonoBehaviour:
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
       sprite: {fileID: 21300000, guid: 1197d9ec0ec6d5449adf20b9108ac0ac, type: 3}
+    asset: {fileID: 11400000, guid: 422829c819cebab42a2909a3a99b3164, type: 2}
+    faces:
+    - {fileID: 11400000, guid: 181099cd4e6f0904db82522effb78e7b, type: 2}
+    - {fileID: 11400000, guid: 66fbc78b5c884d04aac89c7d8047d636, type: 2}
+    - {fileID: 11400000, guid: aff66e0e710e7d6498db06a565ecf095, type: 2}
+    - {fileID: 11400000, guid: 10820fd356dedb346a7cf7f088da4a01, type: 2}
+    - {fileID: 11400000, guid: 9a57ca1e0fe51a346b65339fdafd1e62, type: 2}
+    posScale: {x: 20, y: 410, z: 110}
   - strName: "\uC774\uD558\uB098"
     code: A
     job: 
@@ -251,6 +879,14 @@ MonoBehaviour:
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
       sprite: {fileID: 21300000, guid: 1197d9ec0ec6d5449adf20b9108ac0ac, type: 3}
+    asset: {fileID: 11400000, guid: 662296a581cf28a4c866e7715b034f2d, type: 2}
+    faces:
+    - {fileID: 11400000, guid: 55f0acdc2c0b60441870418cce7a1096, type: 2}
+    - {fileID: 11400000, guid: 1fe44866d9588fc48a758df060e3113e, type: 2}
+    - {fileID: 11400000, guid: d399700474520374eb93f5b25a3fb7c3, type: 2}
+    - {fileID: 11400000, guid: 119a1c53e4d7a174b94486d34a6201f8, type: 2}
+    - {fileID: 11400000, guid: f1864455e1369a94f82f444faec9952c, type: 2}
+    posScale: {x: -18, y: 446, z: 48}
   - strName: "\uBC31\uC2E0\uC6B0"
     code: B
     job: 
@@ -262,6 +898,9 @@ MonoBehaviour:
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
       sprite: {fileID: 21300000, guid: 1197d9ec0ec6d5449adf20b9108ac0ac, type: 3}
+    asset: {fileID: 0}
+    faces: []
+    posScale: {x: 0, y: 0, z: 0}
   - strName: "\uC724 \uBE44\uC11C"
     code: V
     job: 
@@ -273,6 +912,10 @@ MonoBehaviour:
     standingImg:
     - describe: "\uC77C\uBC18\uD3EC\uC9C0\uC158"
       sprite: {fileID: 21300000, guid: 1197d9ec0ec6d5449adf20b9108ac0ac, type: 3}
+    asset: {fileID: 11400000, guid: e232aeba86d06994988d9b618fa0c21e, type: 2}
+    faces:
+    - {fileID: 11400000, guid: a1ff778087c322e47b4917317c2e18a9, type: 2}
+    posScale: {x: -17, y: 231, z: 70}
   extras:
   - strName: "\uD559\uC0DD1"
     code: 
@@ -283,6 +926,9 @@ MonoBehaviour:
     isAlive: 0
     jobSprite: {fileID: 0}
     standingImg: []
+    asset: {fileID: 0}
+    faces: []
+    posScale: {x: 0, y: 0, z: 0}
   - strName: "\uD559\uC0DD2"
     code: 
     job: 
@@ -292,6 +938,9 @@ MonoBehaviour:
     isAlive: 0
     jobSprite: {fileID: 0}
     standingImg: []
+    asset: {fileID: 0}
+    faces: []
+    posScale: {x: 0, y: 0, z: 0}
 --- !u!114 &3439767891236984852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,7 +1139,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -586,4 +1235,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 296f31a915a326e4693243e5417d64df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audiosource: {fileID: 0}
   VoiceList: []
