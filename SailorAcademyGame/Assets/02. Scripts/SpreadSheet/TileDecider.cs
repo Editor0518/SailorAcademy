@@ -41,7 +41,7 @@ public class TileDecider : MonoBehaviour
     [HideInInspector] string sheetName;
     public int chap=-1;
     public bool isEvent = false;
-    string[] chapter = { "prolog (N)", "ch1 (N)", "ch2", "ch3", "ch4" };
+    string[] chapter = { "prolog (N)", "ch1 (N)", "ch2 (N)", "ch3 (N)", "ch4" };
     string friendEvnt = "event";
 
     /*

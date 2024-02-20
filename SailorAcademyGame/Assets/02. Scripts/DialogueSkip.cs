@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogueSkip : MonoBehaviour
 {
@@ -19,6 +20,40 @@ public class DialogueSkip : MonoBehaviour
     public DialogSystem dialog;
 
     bool isDown = false;
+
+    [Header("skips")]
+    public RectTransform guide;
+    public TMP_Text guideText;
+    [TextArea(1, 3)] public string strAuto;
+    [TextArea(1, 3)] public string strAll;
+
+    void GuideOn(string msg, bool isAuto) {
+        stayTime += Time.time / Time.timeScale;
+        if (stayTime < 3) return;
+        guide.gameObject.SetActive(true);
+        guide.anchoredPosition = new Vector2(guide.anchoredPosition.x, isAuto ? autoButton.GetComponent<RectTransform>().anchoredPosition.y : skipButton.GetComponent<RectTransform>().anchoredPosition.y);
+        guideText.text = msg;
+    }
+    public float stayTime = 0;
+
+    private void Start()
+    {
+        if (guide.gameObject.activeInHierarchy) GuideFalse();
+    }
+
+    public void GuideFalse(){
+        stayTime = 0; guide.gameObject.SetActive(false);
+
+    }
+
+    public void GuideOnAuto() {
+        
+        GuideOn(strAuto, true);
+    }
+
+    public void GuideOnAll() {
+        GuideOn(strAll, false);
+    }
 
     public void PointerEnter() {
         
